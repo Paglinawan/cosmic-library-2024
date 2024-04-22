@@ -1,0 +1,10 @@
+[class*="l-inner"] {
+  width: 95%;
+  margin: 0 auto;
+}
+.l-inner-md {
+  max-width: 1000px;
+}
+.l-inner-sm {
+  max-width: 750px;
+}

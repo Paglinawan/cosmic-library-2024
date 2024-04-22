@@ -1,0 +1,9 @@
+.hd {
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--bg-200);
+}
+.hd-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

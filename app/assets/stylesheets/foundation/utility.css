@@ -1,0 +1,55 @@
+/* text-style */
+.text-xs {
+  font-size: var(--font-xs);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+.text-sm {
+  font-size: var(--font-sm);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+.text-base {
+  font-size: var(--font-base);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+.text-md {
+  font-size: var(--font-md);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.text-lg {
+  font-size: var(--font-lg);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.text-xl {
+  font-size: var(--font-xl);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.text-xxl {
+  font-size: var(--font-xxl);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+/* color */
+.text-primary-100 {
+  color: var(--primary-100) !important;
+}
+.text-primary-200 {
+  color: var(--primary-200) !important;
+}
+.text-primary-300 {
+  color: var(--primary-300) !important;
+}
+
+/* decoration */
+.font-bold {
+  font-weight: 600 !important;
+}
+.cursor-pointer {
+  cursor: pointer !important;
+}
