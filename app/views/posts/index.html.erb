@@ -1,2 +1,15 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<main class="l-cards">
+  <%= render "card" %>
+  <%= render "card" %>
+  <%= render "card" %>
+  <%= render "card" %>
+  <%= render "card" %>
+  <%= render "card" %>
+</main>
+<nav class="pager">
+  <a href="#" class="pager-prev"><img src="<%= asset_path('icon-pager.svg') %>" alt="Cosmic Library" width="32" height="32" alt="前へ" /></a>
+  <a href="#" class="pager-item is-first is-active">1</a>
+  <a href="#" class="pager-item">2</a>
+  <a href="#" class="pager-item is-last">3</a>
+  <a href="#" class="pager-next"><img src="<%= asset_path('icon-pager.svg') %>" alt="Cosmic Library" width="32" height="32" alt="次へ" /></a>
+</nav>

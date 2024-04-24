@@ -1,0 +1,34 @@
+.form-switch {
+  display: inline-flex;
+  cursor: pointer;
+}
+.form-switch-ball {
+  position: relative;
+  display: inline-block;
+  width: 4rem;
+  height: 2.6rem;
+  background: var(--text-200);
+  border-radius: 2rem;
+  transition: all var(--duration-200);
+  &::before {
+    content: "";
+    position: absolute;
+    width: 2.2rem;
+    height: 2.2rem;
+    background: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 0.2rem;
+    background: white;
+    transform: translateY(-50%);
+    transition: all var(--duration-200);
+  }
+}
+.form-switch input:checked + .form-switch-ball {
+  background: var(--primary-100);
+  &::before {
+    background: white;
+    right: 0.2rem;
+    left: auto;
+  }
+}

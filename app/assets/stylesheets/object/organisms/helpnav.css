@@ -1,0 +1,38 @@
+.helpnav {
+  @container style(--is-pc) {
+    grid-column-start: 1;
+    margin-top: 6.4rem;
+  }
+  @container style(--is-sp) {
+    grid-column: 1 / 13;
+    margin-top: 8rem;
+  }
+}
+.helpnav-list {
+  display: grid;
+  @container style(--is-pc) {
+    gap: 24px;
+  }
+  @container style(--is-sp) {
+    grid-auto-flow: column;
+    gap: 1.6rem;
+    justify-content: center;
+  }
+}
+.helpnav-anc {
+  font-size: var(--font-sm);
+  line-height: 1;
+  @container style(--is-pc) {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.6rem;
+    &::before {
+      display: inline-block;
+      content: "";
+      border-top: solid 1px rgba(255, 255, 255, 0.4);
+      width: 1.6rem;
+    }
+  }
+  @container style(--is-sp) {
+  }
+}

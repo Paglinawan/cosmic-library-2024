@@ -53,3 +53,15 @@
 .cursor-pointer {
   cursor: pointer !important;
 }
+
+/* display */
+@container style(--is-pc) {
+  .pc\:hidden {
+    display: none !important;
+  }
+}
+@container style(--is-sp) {
+  .sp\:hidden {
+    display: none !important;
+  }
+}

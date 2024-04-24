@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CosmicLibrary</title>
+    <title>Cosmic Library</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,37 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="l-main l-inner-md">
+
+      <header class="hd">
+        <img src="<%= asset_path('logo.svg') %>" alt="Cosmic Library" width="177" height="106" />
+      </header>
+
+      <nav class="pagenav">
+        <ul class="pagenav-list">
+          <li class="pagenav-item"><a href="#" class="pagenav-anc is-active">映画</a></li>
+          <li class="pagenav-item"><a href="#" class="pagenav-anc">本</a></li>
+        </ul>
+      </nav>
+
+      <div class="action">
+        <span class="sp:hidden"><button class="form-btn-add">作成する</button></span>
+        <span class="pc:hidden"><button class="form-fixed-btn"><img src="<%= asset_path('icon-plus.svg') %>" alt="作成する" width="24" height="24" /></button></span>
+      </div>
+
+      <%= yield %>
+
+      <nav class="helpnav">
+        <ul class="helpnav-list">
+          <li class="helpnav-item"><a href="#" class="helpnav-anc">プレビュー</a></li>
+          <li class="helpnav-item"><a href="#" class="helpnav-anc">ログアウト</a></li>
+        </ul>
+      </nav>
+
+      <footer class="ft">
+        <p class="ft-copyright">&copy; 2024 Paglinawan</p>
+      </footer>
+
+    </div>
   </body>
 </html>
