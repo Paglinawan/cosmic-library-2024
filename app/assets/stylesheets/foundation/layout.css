@@ -3,7 +3,7 @@
   margin: 0 auto;
 }
 .l-inner-md {
-  max-width: 1180px;
+  max-width: 1296px;
 }
 .l-inner-sm {
   max-width: 750px;
@@ -13,7 +13,7 @@
   display: grid;
   @container style(--is-pc) {
     grid-template-columns: 3fr 9fr;
-    grid-row-gap: 64px;
+    grid-column-gap: 4.8rem;
     padding: var(--space-xl) 0;
   }
   @container style(--is-sp) {
@@ -26,6 +26,7 @@
   @container style(--is-pc) {
     grid-column: 2 / 3;
     grid-row: 1 / 7;
+    grid-template-columns: repeat(auto-fit, minmax(28.8rem, 1fr));
     gap: clamp(1rem, 4.8rem, 2vw);
   }
   @container style(--is-sp) {

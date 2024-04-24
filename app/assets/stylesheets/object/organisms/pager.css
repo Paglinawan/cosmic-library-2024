@@ -4,9 +4,14 @@
   grid-auto-flow: column;
   justify-content: center;
   gap: 1.6rem;
-  margin-top: var(--space-lg);
   @container style(--is-pc) {
-    grid-column: 1 / 4;
+    grid-column: 2 / 3;
+    grid-row: 7 / 8;
+    margin-top: var(--space-lg);
+  }
+  @container style(--is-sp) {
+    grid-column: 1 / 13;
+    margin-top: var(--space-xl);
   }
 }
 .pager-prev {

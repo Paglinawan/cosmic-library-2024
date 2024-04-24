@@ -1,4 +1,7 @@
 .action {
+  @container style(--is-pc) {
+    margin-top: 6.4rem;
+  }
   @container style(--is-sp) {
     position: fixed;
     z-index: 10;

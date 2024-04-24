@@ -1,6 +1,7 @@
 .ft {
   @container style(--is-pc) {
     grid-column-start: 1;
+    margin-top: 6.4rem;
   }
   @container style(--is-sp) {
     grid-column: 1 / 13;
