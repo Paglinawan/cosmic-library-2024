@@ -1,9 +1,10 @@
 .hd {
-  padding: var(--space-xs) var(--space-sm);
-  background: var(--bg-200);
-}
-.hd-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @container style(--is-pc) {
+    grid-column-start: 1;
+  }
+  @container style(--is-sp) {
+    grid-column: 1 / 7;
+    grid-row: 1 / 2;
+    max-width: 6.8rem;
+  }
 }

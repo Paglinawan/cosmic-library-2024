@@ -1,0 +1,41 @@
+.pager {
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-top: var(--space-lg);
+  @container style(--is-pc) {
+    grid-column: 1 / 4;
+  }
+}
+.pager-prev {
+  display: block;
+  translate: 0 -2.4rem;
+}
+.pager-next {
+  display: block;
+  scale: -1 -1;
+  translate: 0 2.4rem;
+}
+.pager-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border: solid 1px;
+  border-radius: 50%;
+  opacity: 0.4;
+  transition: all var(--duration-100);
+  &.is-active,
+  &:hover {
+    opacity: 1;
+  }
+  &.is-first {
+    translate: 0 -1rem;
+  }
+  &.is-last {
+    translate: 0 1rem;
+  }
+}

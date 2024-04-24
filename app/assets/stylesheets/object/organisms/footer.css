@@ -1,8 +1,14 @@
 .ft {
-  padding: var(--space-xl) 0 var(--space-md);
+  @container style(--is-pc) {
+    grid-column-start: 1;
+  }
+  @container style(--is-sp) {
+    grid-column: 1 / 13;
+    margin-top: 6.4rem;
+    text-align: center;
+  }
 }
 .ft-copyright {
   color: var(--text-200);
-  font-size: 0.8em;
-  text-align: center;
+  font-size: var(--font-xs);
 }

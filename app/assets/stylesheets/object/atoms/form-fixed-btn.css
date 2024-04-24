@@ -1,0 +1,17 @@
+.form-fixed-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(
+    155deg,
+    #fff 13.3%,
+    rgba(255, 255, 255, 0.6) 90.31%
+  );
+  filter: drop-shadow(0px 4px 20px rgba(255, 255, 255, 0.3));
+  svg {
+    fill: var(--bg-300);
+  }
+}
