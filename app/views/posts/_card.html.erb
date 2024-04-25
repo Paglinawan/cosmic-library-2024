@@ -12,7 +12,7 @@
     <p class="card-body">感想が入ります。感想が入ります。感想が入ります。感想が入ります。感想が入ります。感想が入ります。感想が入ります。感想が入ります。感想が入ります。</p>
     <div class="card-controller">
       <button class="card-delete"><img src="<%= asset_path('icon-trash.svg') %>" alt="Cosmic Library" width="24" height="24" alt="削除" /></button>
-      <button class="card-edit"><img src="<%= asset_path('icon-edit.svg') %>" alt="Cosmic Library" width="24" height="24" alt="編集" /></button>
+      <button class="card-edit" data-modal-target="#<%= class_name %>"><img src="<%= asset_path('icon-edit.svg') %>" alt="Cosmic Library" width="24" height="24" alt="編集" /></button>
       <label class="form-switch">
         <input type="checkbox" class="js-card-switch">
         <span class="form-switch-ball"></span>
@@ -20,3 +20,35 @@
     </div>
   </div>
 </article>
+<div id="<%= class_name %>" class="modal">
+  <div class="modal-wrapper">
+    <span class="modal-close" data-modal-target="#<%= class_name %>"><img src="<%= asset_path('icon-close.svg') %>" alt="Cosmic Library" width="24" height="24" alt="閉じる" /></span>
+    <div class="form">
+      <ul class="form-items">
+        <li class="form-item">
+          <select class="form-select">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+          </select>
+        </li>
+        <li class="form-item"><input type="text" class="form-input" /></li>
+        <li class="form-item"><input type="text" class="form-input" /></li>
+        <li class="form-item">
+          <select class="form-select">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+          </select>
+        </li>
+        <li class="form-item">
+          <textarea class="form-textarea"></textarea>
+        </li>
+      </ul>
+      <div class="form-actions">
+        <button class="form-cancel">キャンセル</button>
+        <button class="form-submit">保存</button>
+      </div>
+    </div>
+  </div>
+</div>

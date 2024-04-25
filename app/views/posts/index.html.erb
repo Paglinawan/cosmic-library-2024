@@ -1,10 +1,10 @@
 <main class="l-cards">
-  <%= render "card" %>
-  <%= render "card" %>
-  <%= render "card" %>
-  <%= render "card" %>
-  <%= render "card" %>
-  <%= render "card" %>
+  <%= render partial: 'card', locals: { class_name: 'card1' } %>
+  <%= render partial: 'card', locals: { class_name: 'card2' } %>
+  <%= render partial: 'card', locals: { class_name: 'card3' } %>
+  <%= render partial: 'card', locals: { class_name: 'card4' } %>
+  <%= render partial: 'card', locals: { class_name: 'card5' } %>
+  <%= render partial: 'card', locals: { class_name: 'card6' } %>
 </main>
 <nav class="pager">
   <a href="#" class="pager-prev"><img src="<%= asset_path('icon-pager.svg') %>" alt="Cosmic Library" width="32" height="32" alt="前へ" /></a>
