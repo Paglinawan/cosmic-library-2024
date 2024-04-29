@@ -8,3 +8,6 @@ toggleCard();
 
 import { animate } from "controllers/three";
 animate();
+
+import { toggleModal } from "controllers/modal";
+toggleModal();
