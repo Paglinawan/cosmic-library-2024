@@ -83,9 +83,16 @@
   }
 }
 .card-star {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
   font-size: var(--font-base);
   color: var(--text-200);
   line-height: 1;
+  letter-spacing: 0;
+  .is-active {
+    color: var(--primary-100);
+  }
 }
 .card-body {
   font-size: var(--font-xs);
