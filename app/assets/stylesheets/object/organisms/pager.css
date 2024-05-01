@@ -23,7 +23,20 @@
   scale: -1 -1;
   translate: 0 2.4rem;
 }
+.pager-items {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1.6rem;
+}
 .pager-item {
+  &:first-child {
+    translate: 0 -1rem;
+  }
+  &:last-child {
+    translate: 0 1rem;
+  }
+}
+.pager-anc {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -36,11 +49,5 @@
   &.is-active,
   &:hover {
     opacity: 1;
-  }
-  &.is-first {
-    translate: 0 -1rem;
-  }
-  &.is-last {
-    translate: 0 1rem;
   }
 }
