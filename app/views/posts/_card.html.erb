@@ -18,7 +18,9 @@
     </p>
     <p class="card-body"><%= card_body %></p>
     <div class="card-controller">
-      <button class="card-delete"><img src="<%= asset_path('icon-trash.svg') %>" alt="Cosmic Library" width="24" height="24" alt="削除" /></button>
+      <%= button_to post_path(id), method: :delete, class: 'card-delete cursor-pointer', form: { data: { turbo_confirm: "本当に削除しますか？" } } do %>
+        <%= image_tag("icon-trash.svg", alt: "Cosmic Library", width: 24, height: 24) %>
+      <% end %>
       <button class="card-edit" data-modal-target="#<%= class_name %>"><img src="<%= asset_path('icon-edit.svg') %>" alt="Cosmic Library" width="24" height="24" alt="編集" /></button>
       <label class="form-switch">
         <input type="checkbox" class="js-card-switch">

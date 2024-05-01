@@ -1,6 +1,6 @@
 <main class="l-cards">
   <% @films.each_with_index do |film, index| %>
-    <%= render partial: 'card', locals: { class_name: "card#{index + 1}", title: film.title, title_en: film.title_en, card_star: film.review_star, card_body: film.comment } %>
+    <%= render partial: 'card', locals: { class_name: "card#{index + 1}", id: film.id, title: film.title, title_en: film.title_en, card_star: film.review_star, card_body: film.comment } %>
   <% end %>
 </main>
 <nav class="pager">
