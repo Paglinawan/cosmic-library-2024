@@ -10,7 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class='<%= @is_modal_open ? "is-modal-open" : "" %>'>
     <div class="l-main l-inner-md">
 
       <header class="hd">
@@ -25,8 +25,12 @@
       </nav>
 
       <div class="action">
-        <span class="sp:hidden"><button class="form-btn-add">作成する</button></span>
-        <span class="pc:hidden"><button class="form-fixed-btn"><img src="<%= asset_path('icon-plus.svg') %>" alt="作成する" width="24" height="24" /></button></span>
+        <span class="sp:hidden"><%= link_to "新規作成", new_film_path, class: "form-btn-add" %></span>
+        <span class='<%= @is_modal_open ? "hidden" : "pc:hidden" %>'>
+          <%= link_to new_film_path, class: "form-fixed-btn" do %>
+            <%= image_tag asset_path('icon-plus.svg'), alt: "作成する", width: 24, height: 24 %>
+          <% end %>
+        </span>
       </div>
 
       <%= yield %>
