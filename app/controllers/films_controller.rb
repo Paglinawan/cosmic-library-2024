@@ -10,8 +10,12 @@ class FilmsController < ApplicationController
   end
 
   def create
-    Film.create(film_params)
-    redirect_to root_path
+    @film = Film.new(film_params)
+    if @film.save
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -21,8 +25,11 @@ class FilmsController < ApplicationController
 
   def update
     @film = Film.find(params[:id])
-    @film.update(film_params)
-    redirect_to root_path
+    if @film.update(film_params)
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy

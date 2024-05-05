@@ -45,3 +45,11 @@
   right: 3.2rem;
   cursor: pointer;
 }
+.modal-messages {
+  margin: 0.8rem 0 0 1.5em;
+  list-style: disc;
+  font-size: var(--font-sm);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--accent-200);
+}
