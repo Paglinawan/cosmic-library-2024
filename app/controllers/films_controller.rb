@@ -10,7 +10,7 @@ class FilmsController < ApplicationController
   end
 
   def create
-    Film.create(title: params[:film][:title], title_en: params[:film][:title_en], review_star: params[:film][:review_star], comment: params[:film][:comment])
+    Film.create(film_params)
     redirect_to root_path
   end
 
@@ -21,7 +21,7 @@ class FilmsController < ApplicationController
 
   def update
     @film = Film.find(params[:id])
-    @film.update(title: params[:film][:title], title_en: params[:film][:title_en], review_star: params[:film][:review_star], comment: params[:film][:comment])
+    @film.update(film_params)
     redirect_to root_path
   end
 
@@ -29,5 +29,11 @@ class FilmsController < ApplicationController
     @film = Film.find(params[:id])
     @film.destroy
     redirect_to root_path
+  end
+
+  private
+
+  def film_params
+    params.require(:film).permit(:title, :title_en, :review_star, :comment)
   end
 end
