@@ -1,0 +1,29 @@
+ja:
+  activerecord:
+    attributes:
+      film:
+        tags: "ジャンル"
+        title: "タイトル"
+        title_en: "英語のタイトル"
+        review_star: "評価"
+        comment: "コメント"
+  helpers:
+    select:
+      prompt: "選択してください"
+  options:
+    actions:
+      cancel: "キャンセル"
+      save: "保存"
+  errors:
+    format: "%{attribute}%{message}"
+  activemodel:
+    errors:
+      models:
+        film:
+          attributes:
+            tags:
+              inclusion: "は有効な値ではありません"
+            title:
+              presence: "を入力してください"
+            review_star:
+              inclusion: "は1から5の範囲で選択してください"
