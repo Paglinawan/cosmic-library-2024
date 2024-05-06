@@ -17,17 +17,19 @@
       <% end %>
     </p>
     <p class="card-body"><%= card_body %></p>
-    <div class="card-controller">
-      <%= button_to film_path(id), method: :delete, class: 'card-delete cursor-pointer', form: { data: { turbo_confirm: "本当に削除しますか？" } } do %>
-        <%= image_tag("icon-trash.svg", alt: "Cosmic Library", width: 24, height: 24) %>
-      <% end %>
-      <%= link_to edit_film_path(id), class: 'card-edit cursor-pointer' do %>
-        <%= image_tag("icon-edit.svg", alt: "Cosmic Library", width: 24, height: 24) %>
-      <% end %>
-      <label class="form-switch">
-        <input type="checkbox" class="js-card-switch">
-        <span class="form-switch-ball"></span>
-      </label>
-    </div>
+    <% if @is_signed %>
+      <div class="card-controller">
+        <%= button_to film_path(id), method: :delete, class: 'card-delete cursor-pointer', form: { data: { turbo_confirm: "本当に削除しますか？" } } do %>
+          <%= image_tag("icon-trash.svg", alt: "Cosmic Library", width: 24, height: 24) %>
+        <% end %>
+        <%= link_to edit_film_path(id), class: 'card-edit cursor-pointer' do %>
+          <%= image_tag("icon-edit.svg", alt: "Cosmic Library", width: 24, height: 24) %>
+        <% end %>
+        <label class="form-switch">
+          <input type="checkbox" class="js-card-switch">
+          <span class="form-switch-ball"></span>
+        </label>
+      </div>
+    <% end %>
   </div>
 </article>
