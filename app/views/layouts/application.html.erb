@@ -24,21 +24,26 @@
         </ul>
       </nav>
 
-      <div class="action">
-        <span class="sp:hidden"><%= link_to "新規作成", new_film_path, class: "form-btn-add" %></span>
-        <span class='<%= @is_modal_open ? "hidden" : "pc:hidden" %>'>
-          <%= link_to new_film_path, class: "form-fixed-btn" do %>
-            <%= image_tag asset_path('icon-plus.svg'), alt: "作成する", width: 24, height: 24 %>
-          <% end %>
-        </span>
-      </div>
+      <% if @is_signed %>
+        <div class="action">
+          <span class="sp:hidden"><%= link_to "新規作成", new_film_path, class: "form-btn-add" %></span>
+          <span class='<%= @is_modal_open ? "hidden" : "pc:hidden" %>'>
+            <%= link_to new_film_path, class: "form-fixed-btn" do %>
+              <%= image_tag asset_path('icon-plus.svg'), alt: "作成する", width: 24, height: 24 %>
+            <% end %>
+          </span>
+        </div>
+      <% end %>
 
       <%= yield %>
 
       <nav class="helpnav">
         <ul class="helpnav-list">
-          <li class="helpnav-item"><a href="#" class="helpnav-anc">プレビュー</a></li>
-          <li class="helpnav-item"><a href="#" class="helpnav-anc">ログアウト</a></li>
+          <% if @is_signed %>
+            <li class="helpnav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "helpnav-anc" %></li>
+          <% else %>
+            <li class="helpnav-item"><%= link_to "ログイン", new_user_session_path, class: "helpnav-anc" %></li>
+          <% end %>
         </ul>
       </nav>
 

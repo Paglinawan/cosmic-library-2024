@@ -1,4 +1,6 @@
 class FilmsController < ApplicationController
+  before_action :set_signed_in_status
+
   def index
     @films = Film.all.order(created_at: :desc)
     @pagy, @films = pagy(@films, items: 6)
@@ -42,5 +44,9 @@ class FilmsController < ApplicationController
 
   def film_params
     params.require(:film).permit(:title, :title_en, :review_star, :comment)
+  end
+
+  def set_signed_in_status
+    @is_signed = user_signed_in?
   end
 end
