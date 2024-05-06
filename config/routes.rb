@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   root "films#index"
 
   resources :films
+
+  namespace :api do
+    post 'public_cards'
+  end
 end
