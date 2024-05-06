@@ -6,14 +6,14 @@ export const toggleCard = () => {
       if (card) {
         let isChecked = cardSwitch.checked;
         const id = cardSwitch.getAttribute("name");
-        fetch("/api/public_cards", {
+        fetch("/api/v1/public_cards", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]')
               .content,
           },
-          body: JSON.stringify({ is_public: isChecked, id: id }),
+          body: JSON.stringify({ is_public: isChecked, id: Number(id) }),
         });
         card.classList.toggle("is-hidden");
       }

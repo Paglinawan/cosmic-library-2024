@@ -1,7 +1,8 @@
-module Api
+module Api::V1
   class PublicCardsController < ApplicationController
     def update
-      @is_public = params[:is_public]
+      Film.find(params[:id]).update(is_public: params[:is_public])
+
       render json: { status: 'success' }
     end
   end

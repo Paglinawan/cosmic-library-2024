@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :films
 
   namespace :api do
-    post 'public_cards'
+    namespace :v1 do
+      post 'public_cards', to: 'public_cards#update'
+    end
   end
 end
