@@ -3,4 +3,10 @@ Rails.application.routes.draw do
   root "films#index"
 
   resources :films
+
+  namespace :api do
+    namespace :v1 do
+      post 'public_cards', to: 'public_cards#update'
+    end
+  end
 end

@@ -1,4 +1,4 @@
-<article class="card is-hidden">
+<article class='card <%= is_public ? "" : "is-hidden" %>'>
   <div class="card-head">
     <ul class="card-tags">
       <li class="card-tag">コメディ</li>
@@ -26,7 +26,7 @@
           <%= image_tag("icon-edit.svg", alt: "Cosmic Library", width: 24, height: 24) %>
         <% end %>
         <label class="form-switch">
-          <input type="checkbox" class="js-card-switch">
+          <input type="checkbox" class="js-card-switch" name="<%= id %>" <%= is_public ? "checked" : "" %>>
           <span class="form-switch-ball"></span>
         </label>
       </div>
