@@ -1,2 +1,0 @@
-command = "bundle exec rake assets:precompile"
-publish = "public"
