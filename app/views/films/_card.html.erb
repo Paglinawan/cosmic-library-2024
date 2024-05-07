@@ -1,9 +1,12 @@
 <article class='card <%= is_public ? "" : "is-hidden" %>'>
   <div class="card-head">
-    <ul class="card-tags">
-      <li class="card-tag">コメディ</li>
-      <li class="card-tag">ドラマ</li>
-    </ul>
+    <% if tags.any? %>
+      <ul class="card-tags">
+        <% tags.each do |tag| %>
+          <li class="card-tag"><%= tag.label %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <h3 class="card-title"><%= title %></h3>
     <p class="card-title-en"><%= title_en %></p>
   </div>
