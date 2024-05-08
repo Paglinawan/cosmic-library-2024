@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      post 'public_cards', to: 'public_cards#update'
+      post 'public_films', to: 'public_films#update'
+      post 'public_books', to: 'public_books#update'
     end
   end
 end

@@ -1,12 +1,12 @@
-export const toggleCard = () => {
-  const cardSwitches = document.querySelectorAll(".js-card-switch");
+export const toggleCard = (target, endpoint) => {
+  const cardSwitches = document.querySelectorAll(target);
   cardSwitches.forEach(function (cardSwitch) {
     cardSwitch.addEventListener("change", function () {
       let card = cardSwitch.closest(".card");
       if (card) {
         let isChecked = cardSwitch.checked;
         const id = cardSwitch.getAttribute("name");
-        fetch("/api/v1/public_cards", {
+        fetch(endpoint, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
