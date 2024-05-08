@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_08_075232) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_08_122158) do
   create_table "book_tags", force: :cascade do |t|
     t.string "label"
     t.datetime "created_at", null: false
@@ -32,14 +32,25 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_075232) do
     t.boolean "is_public"
   end
 
+  create_table "film_tags", force: :cascade do |t|
+    t.string "label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "film_tags_films", id: false, force: :cascade do |t|
+    t.integer "film_id", null: false
+    t.integer "film_tag_id", null: false
+  end
+
   create_table "films", force: :cascade do |t|
     t.string "title"
     t.string "title_en"
     t.integer "review_star"
     t.string "comment", limit: 100
+    t.boolean "is_public"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_public", default: false
   end
 
   create_table "films_tags", id: false, force: :cascade do |t|

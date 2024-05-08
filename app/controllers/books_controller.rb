@@ -13,7 +13,7 @@ class BooksController < ApplicationController
   def new
     @is_modal_open = true
     @book = book.new
-    @tags = Tag.all.pluck(:label, :id)
+    @tags = BookTag.all.pluck(:label, :id)
   end
 
   def create
@@ -28,7 +28,7 @@ class BooksController < ApplicationController
   def edit
     @is_modal_open = true
     @book = book.find(params[:id])
-    @tags = Tag.all.pluck(:label, :id)
+    @tags = BookTag.all.pluck(:label, :id)
   end
 
   def update
