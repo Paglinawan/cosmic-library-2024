@@ -8,7 +8,7 @@
       </ul>
     <% end %>
     <h3 class="card-title"><%= title %></h3>
-    <p class="card-title-en"><%= title_en %></p>
+    <p class="card-title-en"><%= author %></p>
   </div>
   <div class="card-content">
     <p class="card-star">
@@ -22,14 +22,14 @@
     <p class="card-body"><%= card_body %></p>
     <% if @is_signed %>
       <div class="card-controller">
-        <%= button_to film_path(id), method: :delete, class: 'card-delete cursor-pointer', form: { data: { turbo_confirm: "本当に削除しますか？" } } do %>
+        <%= button_to book_path(id), method: :delete, class: 'card-delete cursor-pointer', form: { data: { turbo_confirm: "本当に削除しますか？" } } do %>
           <%= image_tag("icon-trash.svg", alt: "Cosmic Library", width: 24, height: 24) %>
         <% end %>
-        <%= link_to edit_film_path(id), class: 'card-edit cursor-pointer' do %>
+        <%= link_to edit_book_path(id), class: 'card-edit cursor-pointer' do %>
           <%= image_tag("icon-edit.svg", alt: "Cosmic Library", width: 24, height: 24) %>
         <% end %>
         <label class="form-switch">
-          <input type="checkbox" class="js-card-switch-film" name="<%= id %>" <%= is_public ? "checked" : "" %>>
+          <input type="checkbox" class="js-card-switch-book" name="<%= id %>" <%= is_public ? "checked" : "" %>>
           <span class="form-switch-ball"></span>
         </label>
       </div>
