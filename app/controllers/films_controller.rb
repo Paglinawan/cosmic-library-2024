@@ -2,7 +2,11 @@ class FilmsController < ApplicationController
   before_action :set_signed_in_status
 
   def index
-    @films = Film.all.order(created_at: :desc)
+    if @is_signed
+      @films = Film.all.order(created_at: :desc)
+    else
+      @films = Film.where(is_public: true).order(created_at: :desc)
+    end
     @pagy, @films = pagy(@films, items: 6)
   end
 
