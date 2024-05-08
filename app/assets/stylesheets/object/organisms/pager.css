@@ -14,12 +14,18 @@
     margin-top: var(--space-xl);
   }
 }
-.pager-prev {
+.pager-prev,
+.pager-next {
   display: block;
+  opacity: 0.4;
+  &.is-active {
+    opacity: 1;
+  }
+}
+.pager-prev {
   translate: 0 -2.4rem;
 }
 .pager-next {
-  display: block;
   scale: -1 -1;
   translate: 0 2.4rem;
 }
