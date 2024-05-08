@@ -19,8 +19,8 @@
 
       <nav class="pagenav">
         <ul class="pagenav-list">
-          <li class="pagenav-item"><a href="#" class="pagenav-anc is-active">映画</a></li>
-          <li class="pagenav-item"><a href="#" class="pagenav-anc">本</a></li>
+          <li class="pagenav-item"><a href="/" class="pagenav-anc <%= request.path == '/' ? 'is-active' : '' %>">映画</a></li>
+          <li class="pagenav-item"><a href="/books" class="pagenav-anc <%= request.path == '/books' ? 'is-active' : '' %>">本</a></li>
         </ul>
       </nav>
 
