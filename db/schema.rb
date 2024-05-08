@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_07_080822) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_08_075232) do
+  create_table "book_tags", force: :cascade do |t|
+    t.string "label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "book_tags_books", id: false, force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.integer "book_tag_id", null: false
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.integer "review_star"
+    t.string "comment", limit: 100
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "is_public"
+  end
+
   create_table "films", force: :cascade do |t|
     t.string "title"
     t.string "title_en"

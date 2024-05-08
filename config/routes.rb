@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "films#index"
 
   resources :films
+  resources :books
 
   namespace :api do
     namespace :v1 do

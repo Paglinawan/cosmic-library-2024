@@ -1,0 +1,38 @@
+<article class='card <%= is_public ? "" : "is-hidden" %>'>
+  <div class="card-head">
+    <% if tags.any? %>
+      <ul class="card-tags">
+        <% tags.each do |tag| %>
+          <li class="card-tag"><%= tag.label %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <h3 class="card-title"><%= title %></h3>
+    <p class="card-title-en"><%= author %></p>
+  </div>
+  <div class="card-content">
+    <p class="card-star">
+      <% card_star.to_i.times do |i| %>
+        <span class="<%= i < card_star.to_i ? 'is-active' : '' %>">★</span>
+      <% end %>
+      <% (5 - card_star.to_i).times do %>
+        <span>★</span>
+      <% end %>
+    </p>
+    <p class="card-body"><%= card_body %></p>
+    <% if @is_signed %>
+      <div class="card-controller">
+        <%= button_to book_path(id), method: :delete, class: 'card-delete cursor-pointer', form: { data: { turbo_confirm: "本当に削除しますか？" } } do %>
+          <%= image_tag("icon-trash.svg", alt: "Cosmic Library", width: 24, height: 24) %>
+        <% end %>
+        <%= link_to edit_book_path(id), class: 'card-edit cursor-pointer' do %>
+          <%= image_tag("icon-edit.svg", alt: "Cosmic Library", width: 24, height: 24) %>
+        <% end %>
+        <label class="form-switch">
+          <input type="checkbox" class="js-card-switch" name="<%= id %>" <%= is_public ? "checked" : "" %>>
+          <span class="form-switch-ball"></span>
+        </label>
+      </div>
+    <% end %>
+  </div>
+</article>
