@@ -13,7 +13,7 @@ class FilmsController < ApplicationController
   def new
     @is_modal_open = true
     @film = Film.new
-    @tags = Tag.all.pluck(:label, :id)
+    @tags = FilmTag.all.pluck(:label, :id)
   end
 
   def create
@@ -28,7 +28,7 @@ class FilmsController < ApplicationController
   def edit
     @is_modal_open = true
     @film = Film.find(params[:id])
-    @tags = Tag.all.pluck(:label, :id)
+    @tags = FilmTag.all.pluck(:label, :id)
   end
 
   def update
@@ -49,7 +49,7 @@ class FilmsController < ApplicationController
   private
 
   def film_params
-    params.require(:film).permit(:title, :title_en, :review_star, :comment, :tag_ids => [])
+    params.require(:film).permit(:title, :title_en, :review_star, :comment, :film_tag_ids => [])
   end
 
   def set_signed_in_status
