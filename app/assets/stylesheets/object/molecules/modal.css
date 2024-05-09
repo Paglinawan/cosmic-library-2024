@@ -16,7 +16,10 @@
   }
 }
 .modal {
-  display: none;
+  --hover-circle-bg: rgba(159, 233, 237, 0.1);
+  --hover-circle-width: 4rem;
+  --hover-circle-height: 4rem;
+
   position: fixed;
   top: 50%;
   left: 50%;
@@ -26,9 +29,9 @@
   max-width: 64rem;
   background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
   color: var(--bg-300);
-  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3rem 0 rgba(0, 0, 0, 0.3);
   &.is-display {
-    display: block;
+    animation: fadeInBottom 0.8s forwards;
   }
 }
 

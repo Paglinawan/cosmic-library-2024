@@ -1,4 +1,4 @@
-<main class="l-cards">
+<main class="cards">
   <% @books.each_with_index do |book, index| %>
     <%= render partial: 'card', locals: { class_name: "card#{index + 1}", id: book.id, title: book.title, author: book.author, card_star: book.review_star, card_body: book.comment, tags: book.book_tags, is_public: book.is_public  } %>
   <% end %>

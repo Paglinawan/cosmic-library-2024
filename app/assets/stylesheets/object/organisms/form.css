@@ -23,7 +23,13 @@
 }
 .form-cancel {
   color: var(--text-200);
+  cursor: pointer;
+  transition: all var(--duration-200);
+  &:hover {
+    color: var(--accent-100);
+  }
 }
 .form-submit {
   color: var(--accent-100);
+  cursor: pointer;
 }

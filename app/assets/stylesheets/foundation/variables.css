@@ -35,8 +35,9 @@
   --space-xs: 0.8rem;
 
   /* animation */
-  --duration-100: 100ms;
   --duration-200: 200ms;
+  --duration-400: 400ms;
+  --duration-600: 600ms;
   --timing-fn: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 

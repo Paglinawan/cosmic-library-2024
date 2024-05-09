@@ -7,7 +7,7 @@
     <div class="form">
       <ul class="form-items">
         <li class="form-item">
-          <%= form.select :film_tag_ids, @tags, {}, { multiple: true, class: "form-select" } %>
+          <%= form.select :film_tag_ids, @tags, {}, { multiple: true, class: "form-select-multi" } %>
         </li>
         <li class="form-item">
           <%= form.text_field :title, class: "form-input" %>
@@ -22,7 +22,7 @@
             ['★★★☆☆', 3],
             ['★★☆☆☆', 2],
             ['★☆☆☆☆', 1]
-          ]), {}, class: "form-select" %>
+          ]), {}, class: "form-select text-primary-100" %>
         </li>
         <li class="form-item">
           <%= form.text_area :comment, class: "form-textarea" %>
@@ -36,8 +36,12 @@
         </ul>
       <% end %>
       <div class="form-actions">
-        <%= link_to "キャンセル", root_path, class: "form-cancel" %>
-        <%= form.submit "保存", class: "form-submit" %>
+        <span class="hover-circle">
+          <%= link_to "キャンセル", root_path, class: "form-cancel" %>
+        </span>
+        <span class="hover-circle">
+          <%= form.submit "保存", class: "form-submit" %>
+        </span>
       </div>
     </div>
   <% end %>
