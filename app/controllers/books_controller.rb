@@ -12,12 +12,12 @@ class BooksController < ApplicationController
 
   def new
     @is_modal_open = true
-    @book = book.new
+    @book = Book.new
     @tags = BookTag.all.pluck(:label, :id)
   end
 
   def create
-    @book = book.new(book_params)
+    @book = Book.new(book_params)
     if @book.save
       redirect_to root_path
     else
@@ -27,12 +27,12 @@ class BooksController < ApplicationController
 
   def edit
     @is_modal_open = true
-    @book = book.find(params[:id])
+    @book = Book.find(params[:id])
     @tags = BookTag.all.pluck(:label, :id)
   end
 
   def update
-    @book = book.find(params[:id])
+    @book = Book.find(params[:id])
     if @book.update(book_params)
       redirect_to root_path
     else
@@ -41,7 +41,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = book.find(params[:id])
+    @book = Book.find(params[:id])
     @book.destroy
     redirect_to root_path
   end

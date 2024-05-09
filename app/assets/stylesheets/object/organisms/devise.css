@@ -3,7 +3,6 @@
   letter-spacing: 0.02em;
   @container style(--is-sp) {
     grid-column: 1 / 13;
-    margin-top: var(--space-xl);
   }
   h2 {
     margin-bottom: var(--space-lg);
@@ -33,6 +32,7 @@
     input[type="password"],
     input[type="email"] {
       width: 100%;
+      max-width: 50rem;
       margin-top: var(--space-xs);
       height: var(--form-input-height);
       padding: var(--form-padding);
@@ -103,10 +103,10 @@
       font-weight: 700;
       letter-spacing: 0.02em;
       line-height: 1;
-      border-radius: 999px;
+      border-radius: 99rem;
       background: rgba(255, 255, 255, 0.12);
       cursor: pointer;
-      transition: all var(--duration-200);
+      transition: all var(--duration-400);
       &:hover {
         background: rgba(255, 255, 255, 0.3);
       }

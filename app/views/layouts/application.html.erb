@@ -2,25 +2,42 @@
 <html>
   <head>
     <title>Cosmic Library</title>
+    <meta name="description" content="「Cosmic Library」は、わたしがこれまでに読んだ本や観た映画を記録し、共有できるWEBアプリケーションです。これから出会う作品の無限の可能性と宇宙の無限の広がりが重なるようにデザインしました。">
+    <link rel="canonical" href="https://example.com/" />
+    <%= favicon_link_tag 'favicon.ico' %>
+    <meta name="theme-color" content="#0B0F2B">
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta property="og:title" content="Cosmic Library">
+    <meta property="og:description" content="「Cosmic Library」は、わたしがこれまでに読んだ本や観た映画を記録し、共有できるWEBアプリケーションです。これから出会う作品の無限の可能性と宇宙の無限の広がりが重なるようにデザインしました。">
+    <meta property="og:image" content="<%= asset_path('ogp.jpg') %>">
+
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
   </head>
 
   <body class='<%= @is_modal_open ? "is-modal-open" : "" %>'>
-    <div class="l-main l-inner-md">
+    <div class="l-container l-inner-md">
 
       <header class="hd">
-        <img src="<%= asset_path('logo.svg') %>" alt="Cosmic Library" width="177" height="106" />
+        <%=link_to root_path do %>
+         <img src="<%= asset_path('logo.svg') %>" alt="Cosmic Library" width="177" height="106" />
+        <% end %>
       </header>
 
       <nav class="pagenav">
         <ul class="pagenav-list">
-          <li class="pagenav-item"><a href="/" class="pagenav-anc <%= request.path == '/' ? 'is-active' : '' %>">映画</a></li>
-          <li class="pagenav-item"><a href="/books" class="pagenav-anc <%= request.path == '/books' ? 'is-active' : '' %>">本</a></li>
+          <li class="pagenav-item">
+            <%= link_to "映画", root_path, class: "pagenav-anc #{'is-active' if request.path == '/'}" %>
+          </li>
+          <li class="pagenav-item">
+            <%= link_to "本", books_path, class: "pagenav-anc #{'is-active' if request.path == '/books'}" %>
+          </li>
         </ul>
       </nav>
 
@@ -35,7 +52,9 @@
         </div>
       <% end %>
 
-      <%= yield %>
+      <div class="l-main">
+        <%= yield %>
+      </div>
 
       <nav class="helpnav">
         <ul class="helpnav-list">
@@ -52,5 +71,6 @@
       </footer>
 
     </div>
+  
   </body>
 </html>

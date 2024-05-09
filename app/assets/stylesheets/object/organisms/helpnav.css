@@ -22,6 +22,7 @@
 .helpnav-anc {
   font-size: var(--font-sm);
   line-height: 1;
+  transition: all var(--duration-200);
   @container style(--is-pc) {
     display: inline-flex;
     align-items: center;
@@ -32,7 +33,8 @@
       border-top: solid 1px rgba(255, 255, 255, 0.4);
       width: 1.6rem;
     }
-  }
-  @container style(--is-sp) {
+    &:hover {
+      opacity: 0.6;
+    }
   }
 }

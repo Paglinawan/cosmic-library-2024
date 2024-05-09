@@ -9,7 +9,7 @@
   height: 2.6rem;
   background: var(--text-200);
   border-radius: 2rem;
-  transition: all var(--duration-200);
+  transition: all var(--duration-400);
   &::before {
     content: "";
     position: absolute;
@@ -21,7 +21,7 @@
     left: 0.2rem;
     background: white;
     transform: translateY(-50%);
-    transition: all var(--duration-200);
+    transition: all var(--duration-400);
   }
 }
 .form-switch input:checked + .form-switch-ball {

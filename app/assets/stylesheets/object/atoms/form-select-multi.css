@@ -1,0 +1,26 @@
+.form-select-multi {
+  width: 100%;
+  height: calc(var(--form-input-height) * 1.5);
+  padding: var(--form-padding);
+  border: solid 1px var(--form-border-color);
+  border-radius: var(--form-border-radius);
+  line-height: var(--form-line-height);
+  font-size: var(--form-font-size);
+  overflow-y: scroll;
+  &:focus {
+    border-color: var(--form-focus-color);
+  }
+  &::-webkit-scrollbar {
+    width: 1.2rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--form-border-color);
+    border-radius: 99rem;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--form-border-color);
+  }
+}

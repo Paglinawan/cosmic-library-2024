@@ -9,7 +9,7 @@
   max-width: 750px;
 }
 
-.l-main {
+.l-container {
   display: grid;
   @container style(--is-pc) {
     grid-template-columns: 3fr 9fr;
@@ -21,17 +21,13 @@
     padding: 2.4rem 0 1.6rem;
   }
 }
-.l-cards {
-  display: grid;
+.l-main {
   @container style(--is-pc) {
     grid-column: 2 / 3;
     grid-row: 1 / 7;
-    grid-template-columns: repeat(auto-fit, minmax(28.8rem, 1fr));
-    gap: clamp(1rem, 4.8rem, 2vw);
   }
   @container style(--is-sp) {
-    gap: 1.6rem;
     grid-column: 1 / 13;
-    margin-top: 2.4rem;
+    margin-top: var(--space-lg);
   }
 }

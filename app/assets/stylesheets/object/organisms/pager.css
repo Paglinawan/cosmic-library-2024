@@ -17,17 +17,28 @@
 .pager-prev,
 .pager-next {
   display: block;
-  opacity: 0.4;
+  opacity: 0.16;
+  transition: all var(--duration-400);
   &.is-active {
     opacity: 1;
   }
 }
 .pager-prev {
   translate: 0 -2.4rem;
+  &.is-active {
+    &:hover {
+      translate: 0 -3rem;
+    }
+  }
 }
 .pager-next {
   scale: -1 -1;
   translate: 0 2.4rem;
+  &.is-active {
+    &:hover {
+      translate: 0 3rem;
+    }
+  }
 }
 .pager-items {
   display: grid;
@@ -50,8 +61,8 @@
   height: 4rem;
   border: solid 1px;
   border-radius: 50%;
-  opacity: 0.4;
-  transition: all var(--duration-100);
+  opacity: 0.5;
+  transition: all var(--duration-400);
   &.is-active,
   &:hover {
     opacity: 1;

@@ -26,13 +26,14 @@
   align-items: center;
   gap: 1.6rem;
   line-height: 1;
-  &.is-active {
+  transition: all var(--duration-400);
+  &.is-active,
+  &:hover {
     color: var(--primary-100);
     &::before {
       background: var(--primary-100);
     }
   }
-
   @container style(--is-pc) {
     font-size: var(--font-base);
     &::before {

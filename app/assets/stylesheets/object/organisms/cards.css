@@ -1,0 +1,11 @@
+.cards {
+  display: grid;
+  grid-auto-rows: max-content;
+  @container style(--is-pc) {
+    grid-template-columns: repeat(auto-fit, 28.8rem);
+    gap: clamp(1rem, 4.8rem, 2vw);
+  }
+  @container style(--is-sp) {
+    gap: 1.6rem;
+  }
+}
