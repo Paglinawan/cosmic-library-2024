@@ -12,29 +12,35 @@ class BooksController < ApplicationController
 
   def new
     @is_modal_open = true
+    @is_anime = true
     @book = Book.new
     @tags = BookTag.all.pluck(:label, :id)
   end
 
   def create
+    @is_anime = false
     @book = Book.new(book_params)
+    @tags = BookTag.all.pluck(:label, :id)
     if @book.save
-      redirect_to root_path
+      redirect_to books_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
+    @is_anime = true
     @is_modal_open = true
     @book = Book.find(params[:id])
     @tags = BookTag.all.pluck(:label, :id)
   end
 
   def update
+    @is_anime = false
     @book = Book.find(params[:id])
+    @tags = FilmTag.all.pluck(:label, :id)
     if @book.update(book_params)
-      redirect_to root_path
+      redirect_to books_path
     else
       render :edit, status: :unprocessable_entity
     end
@@ -43,7 +49,7 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    redirect_to root_path
+    redirect_to books_path
   end
 
   private
