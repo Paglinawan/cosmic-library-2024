@@ -30,7 +30,7 @@
   background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
   color: var(--bg-300);
   box-shadow: 0 0 3rem 0 rgba(0, 0, 0, 0.3);
-  &.is-display {
+  &.is-anime {
     animation: fadeInBottom 0.8s forwards;
   }
 }

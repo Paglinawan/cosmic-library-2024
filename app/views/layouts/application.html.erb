@@ -42,14 +42,25 @@
       </nav>
 
       <% if @is_signed %>
-        <div class="action">
-          <span class="sp:hidden"><%= link_to "新規作成", new_film_path, class: "form-btn-add" %></span>
-          <span class='<%= @is_modal_open ? "hidden" : "pc:hidden" %>'>
-            <%= link_to new_film_path, class: "form-fixed-btn" do %>
-              <%= image_tag asset_path('icon-plus.svg'), alt: "作成する", width: 24, height: 24 %>
-            <% end %>
-          </span>
-        </div>
+        <% if request.path == '/' %>
+          <div class="action">
+            <span class="sp:hidden"><%= link_to "新規作成", new_film_path, class: "form-btn-add" %></span>
+            <span class='<%= @is_modal_open ? "hidden" : "pc:hidden" %>'>
+              <%= link_to new_film_path, class: "form-fixed-btn" do %>
+                <%= image_tag asset_path('icon-plus.svg'), alt: "作成する", width: 24, height: 24 %>
+              <% end %>
+            </span>
+          </div>
+        <% elsif request.path == '/books' %>
+          <div class="action">
+            <span class="sp:hidden"><%= link_to "新規作成", new_book_path, class: "form-btn-add" %></span>
+            <span class='<%= @is_modal_open ? "hidden" : "pc:hidden" %>'>
+              <%= link_to new_book_path, class: "form-fixed-btn" do %>
+                <%= image_tag asset_path('icon-plus.svg'), alt: "作成する", width: 24, height: 24 %>
+              <% end %>
+            </span>
+          </div>
+        <% end %>
       <% end %>
 
       <div class="l-main">

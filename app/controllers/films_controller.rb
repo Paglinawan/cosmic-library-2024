@@ -12,12 +12,15 @@ class FilmsController < ApplicationController
 
   def new
     @is_modal_open = true
+    @is_anime = true
     @film = Film.new
     @tags = FilmTag.all.pluck(:label, :id)
   end
 
   def create
+    @is_anime = false
     @film = Film.new(film_params)
+    @tags = FilmTag.all.pluck(:label, :id)
     if @film.save
       redirect_to root_path
     else
@@ -26,13 +29,16 @@ class FilmsController < ApplicationController
   end
 
   def edit
+    @is_anime = true
     @is_modal_open = true
     @film = Film.find(params[:id])
     @tags = FilmTag.all.pluck(:label, :id)
   end
 
   def update
+    @is_anime = false
     @film = Film.find(params[:id])
+    @tags = FilmTag.all.pluck(:label, :id)
     if @film.update(film_params)
       redirect_to root_path
     else
