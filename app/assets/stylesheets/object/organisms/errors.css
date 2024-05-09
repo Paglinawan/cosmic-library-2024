@@ -1,0 +1,14 @@
+.errors-heading {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.errors-title {
+  margin-top: var(--space-sm);
+  font-size: var(--font-md);
+}
+.errors-text {
+  margin-top: var(--space-sm);
+  font-size: var(--font-base);
+  color: var(--text-200);
+}

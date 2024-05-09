@@ -11,4 +11,8 @@ Rails.application.routes.draw do
       post 'public_books', to: 'public_books#update'
     end
   end
+
+  get '/404', to: 'errors#not_found'
+  get '/422', to: 'errors#unprocessable_entity'
+  get '/500', to: 'errors#internal_server_error'
 end
