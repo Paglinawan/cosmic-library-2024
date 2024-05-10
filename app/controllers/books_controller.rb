@@ -20,7 +20,6 @@ class BooksController < ApplicationController
   def create
     @is_anime = false
     @book = Book.new(book_params)
-    @tags = BookTag.all.pluck(:label, :id)
     if @book.save
       redirect_to books_path
     else
@@ -38,7 +37,6 @@ class BooksController < ApplicationController
   def update
     @is_anime = false
     @book = Book.find(params[:id])
-    @tags = FilmTag.all.pluck(:label, :id)
     if @book.update(book_params)
       redirect_to books_path
     else
@@ -55,7 +53,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :review_star, :comment, :book_tag_ids => [])
+    params.require(:book).permit(:title, :author, :review_star, :comment).merge(book_tag_ids: params[:book_tag_ids])
   end
 
   def set_signed_in_status

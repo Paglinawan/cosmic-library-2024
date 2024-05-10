@@ -20,7 +20,6 @@ class FilmsController < ApplicationController
   def create
     @is_anime = false
     @film = Film.new(film_params)
-    @tags = FilmTag.all.pluck(:label, :id)
     if @film.save
       redirect_to root_path
     else
@@ -38,7 +37,6 @@ class FilmsController < ApplicationController
   def update
     @is_anime = false
     @film = Film.find(params[:id])
-    @tags = FilmTag.all.pluck(:label, :id)
     if @film.update(film_params)
       redirect_to root_path
     else
@@ -55,7 +53,7 @@ class FilmsController < ApplicationController
   private
 
   def film_params
-    params.require(:film).permit(:title, :title_en, :review_star, :comment, :film_tag_ids => [])
+    params.require(:film).permit(:title, :title_en, :review_star, :comment).merge(film_tag_ids: params[:film_tag_ids])
   end
 
   def set_signed_in_status
