@@ -20,6 +20,7 @@ class FilmsController < ApplicationController
   def create
     @is_anime = false
     @film = Film.new(film_params)
+    @tags = FilmTag.all.pluck(:label, :id)
     if @film.save
       redirect_to root_path
     else
@@ -38,6 +39,7 @@ class FilmsController < ApplicationController
   def update
     @is_anime = false
     @film = Film.find(params[:id])
+    @tags = FilmTag.all.pluck(:label, :id)
     if @film.update(film_params)
       redirect_to root_path
     else
