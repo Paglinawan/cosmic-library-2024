@@ -20,6 +20,7 @@ class BooksController < ApplicationController
   def create
     @is_anime = false
     @book = Book.new(book_params)
+    @tags = BookTag.all.pluck(:label, :id)
     if @book.save
       redirect_to books_path
     else
@@ -38,6 +39,7 @@ class BooksController < ApplicationController
   def update
     @is_anime = false
     @book = Book.find(params[:id])
+    @tags = BookTag.all.pluck(:label, :id)
     if @book.update(book_params)
       redirect_to books_path
     else
