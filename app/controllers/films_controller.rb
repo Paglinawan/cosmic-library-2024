@@ -32,6 +32,7 @@ class FilmsController < ApplicationController
     @is_modal_open = true
     @film = Film.find(params[:id])
     @tags = FilmTag.all.pluck(:label, :id)
+    @selected_tags = @film.film_tags.pluck(:id)
   end
 
   def update

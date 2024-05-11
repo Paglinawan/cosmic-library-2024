@@ -32,6 +32,7 @@ class BooksController < ApplicationController
     @is_modal_open = true
     @book = Book.find(params[:id])
     @tags = BookTag.all.pluck(:label, :id)
+    @selected_tags = @book.book_tags.pluck(:id)
   end
 
   def update

@@ -8,11 +8,12 @@
       <ul class="form-items">
         <li class="form-item">
           <div class="form-chips">
-            <div class="form-select-multiple form-chips-input"></div>
+            <div class="form-select form-chips-input"></div>
             <div class="form-chips-options">
+              <% @selected_tags ||= [] %>
               <% @tags.each do |tag| %>
-                <label class="form-chips-option-label">
-                  <input type="checkbox" name="book_tag_ids[]" value="<%= tag[1] %>">
+                <label class="form-chips-label">
+                  <input type="checkbox" name="book_tag_ids[]" value="<%= tag[1] %>" <%= @selected_tags.include?(tag[1]) ? "checked" : "" %>>
                   <span><%= tag[0] %></span>
                 </label>
               <% end %>

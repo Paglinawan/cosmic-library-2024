@@ -4,9 +4,27 @@
 }
 .form-chips-input {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem 0.8rem;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.8rem;
+
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    height: 0.4rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--form-border-color);
+    border-radius: 99rem;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--form-border-color);
+  }
 }
+
 .form-chips-options {
   position: absolute;
   top: calc(var(--form-input-height) + 0.4rem);
@@ -40,14 +58,16 @@
     display: grid;
   }
 }
-.form-chips-option-label {
+.form-chips-label {
   transition: all var(--duration-400);
+  cursor: pointer;
   &.is-active {
     color: var(--accent-100);
     font-weight: 700;
   }
 }
 .form-chip {
+  flex-shrink: 0;
   padding: 0.7rem 1.2rem 0.6rem;
   color: var(--white);
   background: var(--text-200);
@@ -55,4 +75,5 @@
   font-size: var(--font-sm);
   font-weight: 700;
   line-height: 1.2;
+  cursor: pointer;
 }

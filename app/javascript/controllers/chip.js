@@ -1,65 +1,67 @@
 export const chip = () => {
-  const initializeChips = () => {
-    const formChipsOptions = document.querySelectorAll(
-      ".form-chips-option-label"
-    );
-
-    formChipsOptions.forEach((checkbox) => {
-      const label = checkbox.closest("label");
-      if (checkbox.checked) {
-        label.classList.add("is-active");
-        const text = checkbox.nextElementSibling.textContent;
-
-        const chipElement = document.createElement("div");
-        chipElement.classList.add("form-chip", `form-chip-${checkbox.value}`);
-        chipElement.textContent = text;
-
-        document.querySelector(".form-chips-input").appendChild(chipElement);
-      }
-    });
-  };
-
-  const setupListeners = () => {
-    document
-      .querySelectorAll(".form-chips-option-label")
-      .forEach((checkbox) => {
-        checkbox.addEventListener("change", (e) => {
-          const label = e.target.closest("label");
-          if (e.target.checked) {
-            label.classList.add("is-active");
-            const text = e.target.nextElementSibling.textContent;
-
-            const chipElement = document.createElement("div");
-            chipElement.classList.add(
-              "form-chip",
-              `form-chip-${e.target.value}`
-            );
-            chipElement.textContent = text;
-
-            document
-              .querySelector(".form-chips-input")
-              .appendChild(chipElement);
-          } else {
-            label.classList.remove("is-active");
-            const chipClassName = `form-chip-${e.target.value}`;
-            const chipToRemove = document.querySelector(`.${chipClassName}`);
-            if (chipToRemove) {
-              chipToRemove.remove();
-            }
-          }
-        });
-      });
-
-    document
-      .querySelector(".form-chips-input")
-      .addEventListener("click", () => {
-        const formChipsOption = document.querySelector(".form-chips-options");
-        formChipsOption.classList.toggle("show");
-      });
-  };
-
   document.addEventListener("DOMContentLoaded", () => {
-    initializeChips();
-    setupListeners();
+    // - handleChip
+    const optionLabels = document.querySelectorAll(".form-chips-label");
+    const chipsField = document.querySelector(".form-chips-input");
+    const insertChip = (input, value) => {
+      const text = input.nextElementSibling.textContent;
+      const chipEl = document.createElement("div");
+
+      const getClassName = `form-chip-${value}`;
+      chipEl.classList.add(`form-chip`, getClassName);
+      const label = input.closest("label");
+
+      chipEl.textContent = text;
+      chipsField.appendChild(chipEl);
+      label.classList.add("is-active");
+    };
+    const removeChip = (input, value) => {
+      const getClassName = `form-chip-${value}`;
+      const targetChip = document.querySelector(`.${getClassName}`);
+      const label = input.closest("label");
+
+      if (targetChip) targetChip.remove();
+      label.classList.remove("is-active");
+    };
+    const handleChip = (input) => {
+      if (input.checked) {
+        insertChip(input, input.value);
+      } else {
+        removeChip(input, input.value);
+      }
+    };
+    optionLabels.forEach((label) => {
+      const input = label.querySelector("input");
+      handleChip(input);
+      label.addEventListener("click", (e) => handleChip(e.target));
+    });
+
+    // - selfRemoveChip
+    const chips = document.querySelectorAll(".form-chip");
+    const selfRemoveChip = (target) => {
+      const chipValue = target.classList[1].split("-")[2];
+      const input = document.querySelector(`input[value="${chipValue}"]`);
+      input.checked = !input.checked;
+      const label = input.closest(".form-chips-label");
+      label.classList.toggle("is-active", input.checked);
+      target.remove();
+    };
+    chips.forEach((chip) => {
+      chip.addEventListener("click", (e) => {
+        selfRemoveChip(e.target);
+      });
+    });
+
+    // - toggleDisplayOptions
+    const toggleDisplayOptions = (target) => {
+      if (!target.classList.contains("form-chip")) {
+        const chipsOption = document.querySelector(".form-chips-options");
+        chipsOption.classList.toggle("show");
+      }
+    };
+    if (chipsField)
+      chipsField.addEventListener("click", (e) =>
+        toggleDisplayOptions(e.target)
+      );
   });
 };
