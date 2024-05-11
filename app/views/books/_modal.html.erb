@@ -7,7 +7,18 @@
     <div class="form">
       <ul class="form-items">
         <li class="form-item">
-          <%= form.select :book_tag_ids, @tags, {}, { multiple: true, class: "form-select-multi" } %>
+          <div class="form-chips">
+            <div class="form-select form-chips-input"></div>
+            <div class="form-chips-options">
+              <% @selected_tags ||= [] %>
+              <% @tags.each do |tag| %>
+                <label class="form-chips-label">
+                  <input type="checkbox" name="book_tag_ids[]" value="<%= tag[1] %>" <%= @selected_tags.include?(tag[1]) ? "checked" : "" %>>
+                  <span><%= tag[0] %></span>
+                </label>
+              <% end %>
+            </div>
+          </div>
         </li>
         <li class="form-item">
           <%= form.text_field :title, class: "form-input" %>

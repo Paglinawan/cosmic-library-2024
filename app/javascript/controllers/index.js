@@ -9,3 +9,6 @@ toggleCard(".js-card-switch-book", "/api/v1/public_books");
 
 import { animate } from "controllers/three";
 animate();
+
+import { chip } from "controllers/chip";
+chip();
