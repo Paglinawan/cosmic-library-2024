@@ -17,3 +17,4 @@
 /config/master.key
 config/master.key
 .DS_Store
+/config/credentials/production.key
