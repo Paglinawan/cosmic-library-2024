@@ -108,7 +108,7 @@ export const chip = () => {
 /* ------------
 - THREE
 ------------ */
-import * as THREE from "../packs/three.module.min.js";
+import * as THREE from "three";
 // - scene
 const scene = new THREE.Scene();
 scene.background = new THREE.Color("#0B0F2B");
