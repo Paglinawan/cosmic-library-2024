@@ -7,5 +7,5 @@ chip();
 import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading";
 eagerLoadControllersFrom("controllers", application);
 
-import { animate } from "controllers/three";
-animate();
+// import { animate } from "controllers/three";
+// animate();
