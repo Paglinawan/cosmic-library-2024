@@ -1,4 +1,4 @@
-# 🍎 Voice Script
+# 🫐 Cosmic Library
 
 - [Demo ↗︎](https://cosmic-library.lolipop.io/)
 - [Design ↗︎](https://www.figma.com/proto/jfdga3oO0tinhR97WVfY3v/Cosmic-Library?node-id=2319-659&t=ag25hKFwrUVTy1UQ-1&scaling=min-zoom&page-id=2319%3A108)
