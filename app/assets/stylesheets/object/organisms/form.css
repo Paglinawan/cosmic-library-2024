@@ -7,6 +7,10 @@
   --form-input-height: 5.4rem;
   --form-textarea-height: 16rem;
   --form-focus-color: var(--primary-100);
+
+  *::placeholder {
+    color: var(--text-200);
+  }
 }
 .form-items {
   display: grid;

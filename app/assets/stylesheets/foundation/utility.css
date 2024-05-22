@@ -45,7 +45,9 @@
 .text-primary-300 {
   color: var(--primary-300) !important;
 }
-
+.text-gray {
+  color: var(--text-200) !important;
+}
 /* decoration */
 .font-bold {
   font-weight: 600 !important;
