@@ -30,6 +30,12 @@ a {
   color: inherit;
   cursor: pointer;
   transition: all var(--duration-400);
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
 }
 
 img {

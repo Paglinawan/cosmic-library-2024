@@ -45,6 +45,9 @@
 .text-primary-300 {
   color: var(--primary-300) !important;
 }
+.text-black {
+  color: var(--bg-300) !important;
+}
 .text-gray {
   color: var(--text-200) !important;
 }

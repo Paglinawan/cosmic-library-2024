@@ -39,6 +39,9 @@
   --duration-400: 400ms;
   --duration-600: 600ms;
   --timing-fn: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+  /* line-height */
+  --line-height-tight: 1.25;
 }
 
 @media screen and (max-width: 750px) {

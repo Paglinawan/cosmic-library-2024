@@ -71,7 +71,7 @@
     )
     1 / 1px;
   border-style: solid;
-  line-height: 1;
+  line-height: var(--line-height-tight);
 }
 .card-title {
   font-size: var(--font-md);
