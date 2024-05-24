@@ -30,7 +30,7 @@ a {
   color: inherit;
   cursor: pointer;
   transition: all var(--duration-400);
-  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 button {
