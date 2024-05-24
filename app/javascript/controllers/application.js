@@ -42,26 +42,29 @@ export const chip = () => {
     // - handleChip
     const optionLabels = document.querySelectorAll(".form-chips-label");
     const chipsField = document.querySelector(".form-chips-input");
+
     const insertChip = (input, value) => {
       const text = input.nextElementSibling.textContent;
       const chipEl = document.createElement("div");
-
       const getClassName = `form-chip-${value}`;
-      chipEl.classList.add(`form-chip`, getClassName);
-      const label = input.closest("label");
 
+      chipEl.classList.add("form-chip", getClassName);
       chipEl.textContent = text;
+
       chipsField.appendChild(chipEl);
-      label.classList.add("is-active");
+      input.checked = true;
+      input.closest("label").classList.add("is-active");
     };
+
     const removeChip = (input, value) => {
       const getClassName = `form-chip-${value}`;
       const targetChip = document.querySelector(`.${getClassName}`);
-      const label = input.closest("label");
 
       if (targetChip) targetChip.remove();
-      label.classList.remove("is-active");
+      input.checked = false;
+      input.closest("label").classList.remove("is-active");
     };
+
     const handleChip = (input) => {
       if (input.checked) {
         insertChip(input, input.value);
@@ -69,6 +72,7 @@ export const chip = () => {
         removeChip(input, input.value);
       }
     };
+
     optionLabels.forEach((label) => {
       const input = label.querySelector("input");
       handleChip(input);
@@ -76,19 +80,19 @@ export const chip = () => {
     });
 
     // - selfRemoveChip
-    const chips = document.querySelectorAll(".form-chip");
     const selfRemoveChip = (target) => {
+      if (!target.classList.contains("form-chip")) return;
+
       const chipValue = target.classList[1].split("-")[2];
       const input = document.querySelector(`input[value="${chipValue}"]`);
-      input.checked = !input.checked;
-      const label = input.closest(".form-chips-label");
-      label.classList.toggle("is-active", input.checked);
-      target.remove();
+      if (input) {
+        removeChip(input, chipValue);
+        target.remove();
+      }
     };
-    chips.forEach((chip) => {
-      chip.addEventListener("click", (e) => {
-        selfRemoveChip(e.target);
-      });
+
+    document.addEventListener("click", (e) => {
+      selfRemoveChip(e.target);
     });
 
     // - toggleDisplayOptions
@@ -98,6 +102,7 @@ export const chip = () => {
         chipsOption.classList.toggle("show");
       }
     };
+
     if (chipsField)
       chipsField.addEventListener("click", (e) =>
         toggleDisplayOptions(e.target)
