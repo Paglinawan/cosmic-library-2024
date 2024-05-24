@@ -43,6 +43,16 @@ export const chip = () => {
     const optionLabels = document.querySelectorAll(".form-chips-label");
     const chipsField = document.querySelector(".form-chips-input");
 
+    const setPlaceholder = () => {
+      if (chipsField.innerHTML === "") {
+        chipsField.innerHTML =
+          '<p class="placeholder text-gray">カテゴリを選択してください</p>';
+      } else {
+        chipsField.querySelector(".placeholder").remove();
+      }
+    };
+    setPlaceholder();
+
     const insertChip = (input, value) => {
       const text = input.nextElementSibling.textContent;
       const chipEl = document.createElement("div");
@@ -54,6 +64,7 @@ export const chip = () => {
       chipsField.appendChild(chipEl);
       input.checked = true;
       input.closest("label").classList.add("is-active");
+      setPlaceholder();
     };
 
     const removeChip = (input, value) => {
@@ -63,6 +74,7 @@ export const chip = () => {
       if (targetChip) targetChip.remove();
       input.checked = false;
       input.closest("label").classList.remove("is-active");
+      setPlaceholder();
     };
 
     const handleChip = (input) => {
