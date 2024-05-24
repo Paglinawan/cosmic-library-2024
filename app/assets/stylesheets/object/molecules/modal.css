@@ -21,17 +21,25 @@
   --hover-circle-height: 4rem;
 
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 100;
-  width: 100%;
   max-width: 64rem;
   background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
   color: var(--bg-300);
   box-shadow: 0 0 3rem 0 rgba(0, 0, 0, 0.3);
   &.is-anime {
     animation: fadeInBottom 0.8s forwards;
+  }
+  @container style(--is-pc) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+  @container style(--is-sp) {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 }
 
