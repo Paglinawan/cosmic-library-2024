@@ -4,12 +4,12 @@
   grid-auto-flow: column;
   justify-content: center;
   gap: 1.6rem;
-  @container style(--is-pc) {
+  @media (width > 750px) {
     grid-column: 2 / 3;
     grid-row: 7 / 8;
     margin-top: var(--space-lg);
   }
-  @container style(--is-sp) {
+  @media (width <= 750px) {
     grid-column: 1 / 13;
     margin-top: var(--space-xl);
   }

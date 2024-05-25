@@ -29,13 +29,13 @@
   &.is-anime {
     animation: fadeInBottom 0.8s forwards;
   }
-  @container style(--is-pc) {
+  @media (width > 750px) {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
   }
-  @container style(--is-sp) {
+  @media (width <= 750px) {
     top: 0;
     left: 0;
     right: 0;

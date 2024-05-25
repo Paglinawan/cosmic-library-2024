@@ -19,12 +19,12 @@
       opacity: 0.2;
     }
   }
-  @container style(--is-pc) {
+  @media (width > 750px) {
     grid-template-rows: subgrid;
     grid-row: span 2;
     padding: 2.4rem 2rem;
   }
-  @container style(--is-sp) {
+  @media (width <= 750px) {
     grid-template-columns: 1fr 1fr;
     place-items: start;
     padding: 1.6rem;
@@ -87,10 +87,10 @@
 .card-content {
   display: grid;
   width: 100%;
-  @container style(--is-pc) {
+  @media (width > 750px) {
     gap: 1.6rem;
   }
-  @container style(--is-sp) {
+  @media (width <= 750px) {
     gap: 1.2rem;
   }
 }
@@ -111,7 +111,7 @@
   font-size: var(--font-xs);
   line-height: 1.4;
   letter-spacing: 0.02em;
-  @container style(--is-sp) {
+  @media (width <= 750px) {
     grid-row-start: 1;
   }
 }

@@ -11,22 +11,22 @@
 
 .l-container {
   display: grid;
-  @container style(--is-pc) {
+  @media (width > 750px) {
     grid-template-columns: 3fr 9fr;
     grid-column-gap: 4.8rem;
     padding: var(--space-xl) 0;
   }
-  @container style(--is-sp) {
+  @media (width <= 750px) {
     grid-template-columns: repeat(12, 1fr);
     padding: 2.4rem 0 1.6rem;
   }
 }
 .l-main {
-  @container style(--is-pc) {
+  @media (width > 750px) {
     grid-column: 2 / 3;
     grid-row: 1 / 7;
   }
-  @container style(--is-sp) {
+  @media (width <= 750px) {
     grid-column: 1 / 13;
     margin-top: 2rem;
   }
