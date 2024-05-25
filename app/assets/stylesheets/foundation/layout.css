@@ -28,6 +28,6 @@
   }
   @container style(--is-sp) {
     grid-column: 1 / 13;
-    margin-top: var(--space-lg);
+    margin-top: 2rem;
   }
 }

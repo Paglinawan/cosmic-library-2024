@@ -63,6 +63,9 @@
 .hidden {
   display: none !important;
 }
+.block {
+  display: block !important;
+}
 @container style(--is-pc) {
   .pc\:hidden {
     display: none !important;
