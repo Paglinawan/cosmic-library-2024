@@ -34,18 +34,18 @@
     <div class="l-container l-inner-md">
 
       <header class="hd">
-        <%=link_to root_path do %>
-         <img src="<%= asset_path('logo.svg') %>" alt="Cosmic Library" width="177" height="106" />
+        <%=link_to root_path, class: "block" do %>
+         <img src="<%= asset_path('logo.svg') %>" alt="Cosmic Library" width="177" height="106" class="hd-logo-img" />
         <% end %>
       </header>
 
       <nav class="pagenav">
         <ul class="pagenav-list">
           <li class="pagenav-item">
-            <%= link_to "映画", root_path, class: "pagenav-anc #{'is-active' if request.path == '/'}" %>
+            <%= link_to "フィルム", root_path, class: "pagenav-anc #{'is-active' if request.path == '/'}" %>
           </li>
           <li class="pagenav-item">
-            <%= link_to "本", books_path, class: "pagenav-anc #{'is-active' if request.path == '/books'}" %>
+            <%= link_to "ブック", books_path, class: "pagenav-anc #{'is-active' if request.path == '/books'}" %>
           </li>
         </ul>
       </nav>
