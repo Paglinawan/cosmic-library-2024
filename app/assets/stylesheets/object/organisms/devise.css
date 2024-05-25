@@ -1,7 +1,7 @@
 .devise {
   line-height: 1.4;
   letter-spacing: 0.02em;
-  @container style(--is-sp) {
+  @media (width <= 750px) {
     grid-column: 1 / 13;
   }
   h2 {

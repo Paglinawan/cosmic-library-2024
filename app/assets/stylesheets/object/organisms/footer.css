@@ -1,9 +1,9 @@
 .ft {
-  @container style(--is-pc) {
+  @media (width > 750px) {
     grid-column-start: 1;
     margin-top: 6.4rem;
   }
-  @container style(--is-sp) {
+  @media (width <= 750px) {
     grid-column: 1 / 13;
     margin-top: 6.4rem;
     text-align: center;

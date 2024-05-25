@@ -10,11 +10,11 @@
     color: var(--text-200);
   }
 
-  @container style(--is-pc) {
+  @media (width > 750px) {
     --form-input-height: 5.4rem;
     --form-padding: 1.6rem 2rem;
   }
-  @container style(--is-sp) {
+  @media (width <= 750px) {
     --form-input-height: 4.8rem;
     --form-padding: 1.2rem 1.2rem;
   }

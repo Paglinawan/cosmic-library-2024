@@ -1,9 +1,9 @@
 .pagenav {
-  @container style(--is-pc) {
+  @media (width > 750px) {
     grid-column-start: 1;
     margin-top: 6.4rem;
   }
-  @container style(--is-sp) {
+  @media (width <= 750px) {
     grid-column: 7 / 13;
     grid-row: 1 / 2;
     place-self: center;
@@ -11,11 +11,11 @@
   }
 }
 .pagenav-list {
-  @container style(--is-pc) {
+  @media (width > 750px) {
     display: grid;
     gap: 3.2rem;
   }
-  @container style(--is-sp) {
+  @media (width <= 750px) {
     display: flex;
     justify-content: end;
     gap: 2rem;
@@ -36,7 +36,7 @@
       background: var(--primary-100);
     }
   }
-  @container style(--is-pc) {
+  @media (width > 750px) {
     &::before {
       display: inline-block;
       content: "";

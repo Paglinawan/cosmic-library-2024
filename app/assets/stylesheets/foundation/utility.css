@@ -66,12 +66,12 @@
 .block {
   display: block !important;
 }
-@container style(--is-pc) {
+@media (width > 750px) {
   .pc\:hidden {
     display: none !important;
   }
 }
-@container style(--is-sp) {
+@media (width <= 750px) {
   .sp\:hidden {
     display: none !important;
   }
