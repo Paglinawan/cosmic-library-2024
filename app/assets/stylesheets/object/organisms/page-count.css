@@ -1,0 +1,29 @@
+.page-count {
+  display: grid;
+  place-items: center;
+  gap: 0.8rem;
+  width: 16rem;
+  margin: 4rem auto 0;
+}
+.page-count-bar {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background: var(--bg-300);
+  height: 0.2rem;
+  border-radius: 1rem;
+}
+.page-count-bar-active {
+  position: absolute;
+  z-index: inherit;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  height: 100%;
+  background: var(--text-200);
+  border-radius: 1rem;
+}
+.page-count-text {
+  color: var(--text-200);
+  font-size: var(--font-sm);
+}

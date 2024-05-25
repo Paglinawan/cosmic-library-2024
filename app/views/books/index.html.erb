@@ -4,3 +4,7 @@
   <% end %>
 </main>
 <%== pagy_nav(@pagy) %>
+<div class="page-count">
+  <div class="page-count-bar"><span class="page-count-bar-active" style="width: <%= @page_count_active_width %>%;"></span></div>
+  <p class="page-count-text">全<%= @page_count_total %>件</p>
+</div>

@@ -7,7 +7,14 @@ class FilmsController < ApplicationController
     else
       @films = Film.where(is_public: true).order(created_at: :desc)
     end
+
+    @page_count_total = @films.count
     @pagy, @films = pagy(@films, items: 6)
+    if @pagy.page == @pagy.last
+      @page_count_active_width = 100
+    else
+      @page_count_active_width = (@films.size * @pagy.page) / @page_count_total.to_f * 100
+    end
   end
 
   def new
