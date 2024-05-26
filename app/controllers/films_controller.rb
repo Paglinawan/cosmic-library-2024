@@ -1,5 +1,6 @@
 class FilmsController < ApplicationController
-  before_action :set_signed_in_status
+  include Authenticatable
+  include Authorization
 
   def index
     if @is_signed
@@ -66,7 +67,4 @@ class FilmsController < ApplicationController
     params.require(:film).permit(:title, :title_en, :review_star, :comment).merge(film_tag_ids: params[:film_tag_ids])
   end
 
-  def set_signed_in_status
-    @is_signed = user_signed_in?
-  end
 end
