@@ -6,6 +6,7 @@
   @media (width <= 750px) {
     grid-column: 1 / 13;
     margin-top: 8rem;
+    text-align: center;
   }
 }
 .helpnav-list {

@@ -84,7 +84,7 @@
             <li class="helpnav-item"><%= link_to "ログイン", new_user_session_path, class: "helpnav-anc" %></li>
           <% end %>
         </ul>
-        <% if !@is_signed_owner %>
+        <% if !@is_signed_owner and @is_signed %>
           <p class="helpnav-login-status">オーナーアカウントではありません</p>
         <% end %>
       </nav>
