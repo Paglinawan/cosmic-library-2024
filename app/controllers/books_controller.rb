@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-  before_action :set_signed_in_status
+  include Authenticatable
+  include Authorization
 
   def index
     if @is_signed
@@ -66,7 +67,4 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title, :author, :review_star, :comment).merge(book_tag_ids: params[:book_tag_ids])
   end
 
-  def set_signed_in_status
-    @is_signed = user_signed_in?
-  end
 end
