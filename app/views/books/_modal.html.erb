@@ -33,7 +33,7 @@
             ['★★★☆☆', 3],
             ['★★★★☆', 4],
             ['★★★★★', 5]
-          ]), {}, class: "form-select text-black" %>
+          ], @book.review_star), {}, class: "form-select text-black" %>
         </li>
         <li class="form-item">
           <%= form.text_area :comment, class: "form-textarea", placeholder: "感想を入力してください" %>
