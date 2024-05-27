@@ -29,9 +29,12 @@ class FilmsController < ApplicationController
     @is_anime = false
     @film = Film.new(film_params)
     @tags = FilmTag.all.pluck(:label, :id)
+    
     if @film.save
-      redirect_to root_path
+      flash[:notice] = '作成されました'
+      redirect_to films_path
     else
+      flash.now[:alert] = 'エラーが発生しました'
       render :new, status: :unprocessable_entity
     end
   end
@@ -42,23 +45,31 @@ class FilmsController < ApplicationController
     @film = Film.find(params[:id])
     @tags = FilmTag.all.pluck(:label, :id)
     @selected_tags = @film.film_tags.pluck(:id)
+    session[:return_to] = request.referer
   end
 
   def update
     @is_anime = false
     @film = Film.find(params[:id])
     @tags = FilmTag.all.pluck(:label, :id)
+    
     if @film.update(film_params)
-      redirect_to root_path
+      flash[:notice] = '更新されました'
+      redirect_to session.delete(:return_to) || films_path
     else
+      flash.now[:alert] = 'エラーが発生しました'
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @film = Film.find(params[:id])
-    @film.destroy
-    redirect_to root_path
+    if @film.destroy
+      flash[:notice] = '削除されました'
+    else
+      flash[:alert] = 'エラーが発生しました'
+    end
+    redirect_back(fallback_location: films_path)
   end
 
   private
