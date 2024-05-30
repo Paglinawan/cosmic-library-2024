@@ -4,13 +4,26 @@ class FilmsController < ApplicationController
 
   def index
     if @is_signed
-      @films = Film.all.order(created_at: :desc)
+      @films = Film.all
     else
-      @films = Film.where(is_public: true).order(created_at: :desc)
+      @films = Film.where(is_public: true)
     end
-
+  
+    case params[:sort_by]
+    when 'review_star_desc'
+      @films = @films.order(review_star: :desc)
+    when 'review_star_asc'
+      @films = @films.order(review_star: :asc)
+    when 'created_at_asc'
+      @films = @films.order(created_at: :asc)
+    else
+      @films = @films.order(created_at: :desc)
+    end
+  
     @page_count_total = @films.count
+  
     @pagy, @films = pagy(@films, items: 6)
+    
     if @pagy.page == @pagy.last
       @page_count_active_width = 100
     else

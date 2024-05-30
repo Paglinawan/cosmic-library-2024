@@ -4,13 +4,26 @@ class BooksController < ApplicationController
 
   def index
     if @is_signed
-      @books = Book.all.order(created_at: :desc)
+      @books = Book.all
     else
-      @books = Book.where(is_public: true).order(created_at: :desc)
+      @books = Book.where(is_public: true)
     end
-
+  
+    case params[:sort_by]
+    when 'review_star_desc'
+      @books = @books.order(review_star: :desc)
+    when 'review_star_asc'
+      @books = @books.order(review_star: :asc)
+    when 'created_at_asc'
+      @books = @books.order(created_at: :asc)
+    else
+      @books = @books.order(created_at: :desc)
+    end
+  
     @page_count_total = @books.count
+  
     @pagy, @books = pagy(@books, items: 6)
+    
     if @pagy.page == @pagy.last
       @page_count_active_width = 100
     else
