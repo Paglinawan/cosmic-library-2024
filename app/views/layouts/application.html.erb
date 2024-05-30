@@ -42,10 +42,10 @@
       <nav class="pagenav">
         <ul class="pagenav-list">
           <li class="pagenav-item">
-            <%= link_to "フィルム", root_path, class: "pagenav-anc #{'is-active' if request.path == '/'}" %>
+            <%= link_to "フィルム", root_path, class: "pagenav-anc #{'is-active' if request.path == '/' || request.path.start_with?('/films')}" %>
           </li>
           <li class="pagenav-item">
-            <%= link_to "ブック", books_path, class: "pagenav-anc #{'is-active' if request.path == '/books'}" %>
+            <%= link_to "ブック", books_path, class: "pagenav-anc #{'is-active' if request.path.start_with?('/books')}" %>
           </li>
         </ul>
       </nav>
