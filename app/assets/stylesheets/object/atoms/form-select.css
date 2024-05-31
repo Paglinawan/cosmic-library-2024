@@ -1,4 +1,6 @@
 .form-select {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: var(--form-input-height);
   padding: var(--form-padding);
@@ -6,12 +8,41 @@
   border-radius: var(--form-border-radius);
   line-height: var(--form-line-height);
   font-size: var(--form-font-size);
-  background-image: url("icon-select.svg");
-  background-size: 1.2rem;
-  background-position: center right 2rem;
-  background-repeat: no-repeat;
   overflow: hidden;
+  cursor: pointer;
   &:focus {
     border-color: var(--form-focus-color);
+  }
+  &::before,
+  &::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2.4rem;
+    right: 1rem;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &::before {
+    background-size: 1.8rem;
+    background-image: url("icon-select.svg");
+    scale: 1;
+    transition: all var(--duration-400);
+  }
+  &::after {
+    background-size: contain;
+    background-image: url("icon-select-close.svg");
+    scale: 0;
+    transition: all var(--duration-400);
+  }
+  &.is-active {
+    &::before {
+      scale: 0;
+    }
+    &::after {
+      scale: 1;
+    }
   }
 }
