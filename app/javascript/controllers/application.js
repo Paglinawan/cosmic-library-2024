@@ -103,7 +103,7 @@ export const chip = () => {
       }
     };
 
-    document.addEventListener("click", (e) => {
+    chipsField.addEventListener("click", (e) => {
       selfRemoveChip(e.target);
     });
 
@@ -112,12 +112,9 @@ export const chip = () => {
       if (!target.classList.contains("form-chip")) {
         const chipsOption = document.querySelector(".form-chips-options");
         chipsOption.classList.toggle("show");
+        chipsField.classList.toggle("is-active");
       }
     };
-
-    if (chipsField)
-      chipsField.addEventListener("click", (e) =>
-        toggleDisplayOptions(e.target)
-      );
+    chipsField.addEventListener("click", (e) => toggleDisplayOptions(e.target));
   });
 };
