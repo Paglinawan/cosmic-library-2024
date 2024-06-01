@@ -26,7 +26,6 @@
   align-items: center;
   gap: 1.6rem;
   line-height: 1;
-  font-size: var(--font-base);
   font-weight: 700;
   transition: all var(--duration-400);
   &.is-active,
@@ -37,6 +36,7 @@
     }
   }
   @media (width > 750px) {
+    font-size: var(--font-base);
     &::before {
       display: inline-block;
       content: "";
@@ -45,5 +45,8 @@
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.6);
     }
+  }
+  @media (width <= 750px) {
+    font-size: 1.4rem;
   }
 }

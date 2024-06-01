@@ -9,7 +9,6 @@
     gap: 1.6rem;
     position: relative;
     z-index: 1;
-    padding-bottom: 2rem;
     &::before {
       content: "";
       display: inline-block;
