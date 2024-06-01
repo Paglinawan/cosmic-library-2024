@@ -44,11 +44,12 @@ export const chip = () => {
     const chipsField = document.querySelector(".form-chips-input");
 
     const setPlaceholder = () => {
-      if (chipsField.innerHTML === "") {
+      if (chipsField.children.length === 0) {
         chipsField.innerHTML =
           '<p class="placeholder text-gray">カテゴリを選択してください</p>';
       } else {
-        chipsField.querySelector(".placeholder").remove();
+        const placeholder = chipsField.querySelector(".placeholder");
+        if (placeholder) placeholder.remove();
       }
     };
     setPlaceholder();
