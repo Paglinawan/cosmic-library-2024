@@ -21,6 +21,9 @@
     gap: 2rem;
   }
 }
+.pagenav-item {
+  display: flex;
+}
 .pagenav-anc {
   display: inline-flex;
   align-items: center;
