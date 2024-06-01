@@ -83,6 +83,7 @@
   100% {
     stroke-dasharray: var(--stroke-double);
     stroke-dashoffset: var(--stroke-default-negative);
+    opacity: 0;
   }
 }
 </style>
