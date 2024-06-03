@@ -3,10 +3,17 @@ class BooksController < ApplicationController
   include Authorization
 
   def index
+    @tags = BookTag.all.pluck(:label, :id)
+    @selected_tags = params[:book_tag_ids] || []
+  
     if @is_signed
       @books = Book.all
     else
       @books = Book.where(is_public: true)
+    end
+  
+    if @selected_tags.any?
+      @books = @books.joins(:book_tags).where(book_tags: { id: @selected_tags }).distinct
     end
   
     case params[:sort_by]
