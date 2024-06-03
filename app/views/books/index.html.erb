@@ -6,9 +6,20 @@
 </main>
 <aside class="sort">
   <%= form_with url: books_path, class:"sort-form", method: :get, local: true do %>
-    <%= select_tag :sort_by, options_for_select([['作成日が新しい順に', 'created_at_desc'], ['作成日が古い順に', 'created_at_asc'], ['レビューが高い順に', 'review_star_desc'], ['レビューが低い順に', 'review_star_asc']], params[:sort_by]), class:"sort-form-select" %>
-    <%= hidden_field_tag :commit, 'sort' %>
-    <%= button_tag '並びかえ', class: 'sort-form-btn', type: 'submit' %>
+    <div class="sort-chips">
+      <% @selected_tags ||= [] %>
+      <% @tags.each do |tag| %>
+        <label class="sort-chip-label">
+          <input type="checkbox" name="book_tag_ids[]" value="<%= tag[1] %>" <%= @selected_tags.include?(tag[1].to_s) ? "checked" : "" %>>
+          <span class="sort-chip-txt"><%= tag[0] %></span>
+        </label>
+      <% end %>
+    </div>
+    <div class="sort-btm">
+      <%= select_tag :sort_by, options_for_select([['作成日が新しい順に', 'created_at_desc'], ['作成日が古い順に', 'created_at_asc'], ['レビューが高い順に', 'review_star_desc'], ['レビューが低い順に', 'review_star_asc']], params[:sort_by]), class:"sort-select" %>
+      <%= hidden_field_tag :commit, 'sort' %>
+      <%= button_tag '並びかえ', class: 'sort-btn', type: 'submit' %>
+    </div>
   <% end %>
 </aside>
 <%== pagy_nav(@pagy) %>

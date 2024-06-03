@@ -3,10 +3,17 @@ class FilmsController < ApplicationController
   include Authorization
 
   def index
+    @tags = FilmTag.all.pluck(:label, :id)
+    @selected_tags = params[:film_tag_ids] || []
+  
     if @is_signed
       @films = Film.all
     else
       @films = Film.where(is_public: true)
+    end
+  
+    if @selected_tags.any?
+      @films = @films.joins(:film_tags).where(film_tags: { id: @selected_tags }).distinct
     end
   
     case params[:sort_by]
