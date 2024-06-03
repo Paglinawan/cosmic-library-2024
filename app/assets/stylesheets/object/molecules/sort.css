@@ -5,16 +5,52 @@
     margin-top: 3.2rem;
   }
   @media (width <= 750px) {
+    position: relative;
+    z-index: 1;
     margin-top: -1.6rem;
+    &::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2rem;
+      background: linear-gradient(
+        to bottom,
+        var(--bg-100),
+        rgba(255, 255, 255, 0)
+      );
+    }
   }
 }
 .sort-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
+  @media (width <= 750px) {
+    padding-top: 2rem;
+    height: 11.5rem;
+    &::-webkit-scrollbar {
+      width: 0.6rem;
+    }
+    &::-webkit-scrollbar-track {
+      background: var(--bg-100);
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--bg-200);
+      border-radius: 99rem;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--bg-200);
+    }
+    overflow-y: scroll;
+  }
 }
 .sort-chip-label {
   display: flex;
+  -webkit-tap-highlight-color: transparent;
   input:checked + .sort-chip-txt {
     border-color: var(--white);
     color: var(--white);
@@ -22,18 +58,25 @@
 }
 .sort-chip-txt {
   display: inline-block;
-  padding: 0.4em 0.8em;
   line-height: 1;
   border: solid 1px var(--bg-300);
   border-radius: 99.9rem;
   color: var(--text-200);
-  font-size: var(--font-xs);
   text-indent: -0.2em;
   transition: all var(--duration-400);
   cursor: pointer;
-  &:hover {
-    border-color: var(--white);
-    color: var(--white);
+  -webkit-tap-highlight-color: transparent;
+  @media (width > 750px) {
+    padding: 0.4rem 1rem;
+    font-size: var(--font-xs);
+    &:hover {
+      border-color: var(--white);
+      color: var(--white);
+    }
+  }
+  @media (width <= 750px) {
+    padding: 0.6rem 1.2rem;
+    font-size: var(--font-sm);
   }
 }
 .sort-form {
