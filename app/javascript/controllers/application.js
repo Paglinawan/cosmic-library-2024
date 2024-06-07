@@ -42,6 +42,7 @@ export const chip = () => {
     // - handleChip
     const optionLabels = document.querySelectorAll(".form-chips-label");
     const chipsField = document.querySelector(".form-chips-input");
+    const chipsIcon = document.querySelector(".form-chips-select-icon");
 
     const setPlaceholder = () => {
       if (chipsField.children.length === 0) {
@@ -117,5 +118,6 @@ export const chip = () => {
       }
     };
     chipsField.addEventListener("click", (e) => toggleDisplayOptions(e.target));
+    chipsIcon.addEventListener("click", (e) => toggleDisplayOptions(e.target));
   });
 };
