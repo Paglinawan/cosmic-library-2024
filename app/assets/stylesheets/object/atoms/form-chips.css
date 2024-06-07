@@ -1,3 +1,45 @@
+.form-chips-select {
+  cursor: pointer;
+  border: solid 1px var(--form-border-color);
+  border-radius: var(--form-border-radius);
+  overflow: hidden;
+  &:focus {
+    border-color: var(--form-focus-color);
+  }
+}
+.form-chips-select-icon {
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  right: 1px;
+  width: 8rem;
+  border-radius: var(--form-border-radius);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, white 60%);
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2.4rem;
+    right: 1rem;
+    content: "";
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &::before {
+    background-size: 1.8rem;
+    background-image: url("icon-select.svg");
+    scale: 1;
+    transition: all var(--duration-400);
+  }
+  &::after {
+    background-size: 2.4rem;
+    background-image: url("icon-select-close.svg");
+    scale: 0;
+    transition: all var(--duration-400);
+  }
+}
 .form-chips {
   position: relative;
   z-index: 2;
@@ -7,7 +49,13 @@
   align-items: center;
   flex-wrap: nowrap;
   gap: 0.8rem;
-
+  width: 100%;
+  height: var(--form-input-height);
+  padding: var(--form-padding);
+  padding-right: 0;
+  line-height: var(--form-line-height);
+  font-size: var(--form-font-size);
+  overflow: hidden;
   overflow-x: auto !important;
   -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
@@ -22,6 +70,14 @@
   }
   &::-webkit-scrollbar-thumb:hover {
     background: var(--form-border-color);
+  }
+  &.is-active + .form-chips-select-icon {
+    &::before {
+      scale: 0;
+    }
+    &::after {
+      scale: 1;
+    }
   }
 }
 
