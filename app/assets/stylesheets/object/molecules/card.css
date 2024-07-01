@@ -58,6 +58,11 @@
   border-style: solid;
   line-height: var(--line-height-tight);
 }
+.card-badge {
+  display: flex;
+  align-items: center;
+  margin-right: 0.4rem;
+}
 .card-title {
   font-size: var(--font-md);
   line-height: 1.2;
