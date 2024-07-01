@@ -1,7 +1,7 @@
 <%= render 'layouts/flash_messages' %>
 <main class="cards">
   <% @films.each_with_index do |film, index| %>
-    <%= render partial: 'card', locals: { class_name: "card#{index + 1}", id: film.id, title: film.title, title_en: film.title_en, card_star: film.review_star, card_body: film.comment, tags: film.film_tags, is_public: film.is_public  } %>
+    <%= render partial: 'card', locals: { class_name: "card#{index + 1}", id: film.id, title: film.title, title_en: film.title_en, card_star: film.review_star, card_body: film.comment, tags: film.film_tags, is_public: film.is_public, is_classic: film.is_classic, is_favorite: film.is_favorite } %>
   <% end %>
 </main>
 <aside class="sort">

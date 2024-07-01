@@ -38,6 +38,18 @@
         <li class="form-item">
           <%= form.text_area :comment, class: "form-textarea", placeholder: "感想を入力してください" %>
         </li>
+        <li class="form-item">
+          <ul class="form-flex">
+            <li class="form-check">
+              <%= form.check_box :is_classic, class: "form-check-input" %>
+              <%= form.label :is_classic, "名作", class: "form-check-label" %>
+            </li>
+            <li class="form-check">
+              <%= form.check_box :is_favorite, class: "form-check-input" %>
+              <%= form.label :is_favorite, "おすすめ", class: "form-check-label" %>
+            </li>
+          </ul>
+        </li>
       </ul>
       <% if book.errors.any? %>
         <ul class="modal-messages">

@@ -44,3 +44,8 @@
   color: var(--accent-100);
   cursor: pointer;
 }
+.form-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+}
