@@ -2,8 +2,8 @@
   <div class="card-head">
     <% if tags.any? %>
       <ul class="card-tags">
-        <%= content_tag(:li, image_tag("badge-classic.svg", alt: "名作", width: 49, height: 18), class: "card-badge") if is_classic %>
-        <%= content_tag(:li, image_tag("badge-favorite.svg", alt: "おすすめ", width: 53, height: 18), class: "card-badge") if is_favorite %>
+        <%= content_tag(:li, image_tag("badge-classic.svg", alt: "名作", width: 40, height: 18), class: "card-badge") if is_classic %>
+        <%= content_tag(:li, image_tag("badge-favorite.svg", alt: "おすすめ", width: 52, height: 18), class: "card-badge") if is_favorite %>
         <% tags.each do |tag| %>
           <li class="card-tag"><%= tag.label %></li>
         <% end %>
