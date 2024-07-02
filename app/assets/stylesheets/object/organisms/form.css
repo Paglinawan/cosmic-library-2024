@@ -1,10 +1,11 @@
 .form {
-  --form-border-radius: 0.4rem;
-  --form-border-color: #cfcfcf;
+  --form-border-width: 0 0 1px 0;
+  --form-border-radius: 0;
+  --form-border-color: var(--text-200);
   --form-font-size: var(--font-base);
   --form-line-height: 1.4;
-  --form-textarea-height: 16rem;
   --form-focus-color: var(--primary-100);
+  --form-textarea-height: auto;
 
   *::placeholder {
     color: var(--text-200);
@@ -12,16 +13,16 @@
 
   @media (width > 750px) {
     --form-input-height: 5.4rem;
-    --form-padding: 1.6rem 2rem;
+    --form-padding: 1.6rem 0;
   }
   @media (width <= 750px) {
     --form-input-height: 4.8rem;
-    --form-padding: 1.2rem 1.2rem;
+    --form-padding: 1.2rem 0;
   }
 }
 .form-items {
   display: grid;
-  gap: 1.6rem;
+  gap: 0;
 }
 .form-actions {
   display: grid;
@@ -48,4 +49,5 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2.4rem;
+  padding: var(--form-padding);
 }

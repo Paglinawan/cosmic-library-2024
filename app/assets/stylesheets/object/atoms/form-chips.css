@@ -1,6 +1,8 @@
 .form-chips-select {
   cursor: pointer;
-  border: solid 1px var(--form-border-color);
+  border-color: var(--form-border-color);
+  border-style: solid;
+  border-width: var(--form-border-width);
   border-radius: var(--form-border-radius);
   overflow: hidden;
   &:focus {
@@ -12,9 +14,7 @@
   top: 1px;
   bottom: 1px;
   right: 1px;
-  width: 8rem;
-  border-radius: var(--form-border-radius);
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, white 60%);
+  width: 4rem;
   &::before,
   &::after {
     position: absolute;
@@ -124,10 +124,9 @@
 }
 .form-chip {
   flex-shrink: 0;
-  padding: 0.7rem 1.2rem 0.6rem;
-  color: var(--white);
-  background: var(--text-200);
-  border-radius: 99rem;
+  padding: 0.4rem 0.8rem 0.3rem;
+  color: var(--text-200);
+  border: solid 1px var(--text-200);
   font-size: var(--font-sm);
   font-weight: 700;
   line-height: 1.2;

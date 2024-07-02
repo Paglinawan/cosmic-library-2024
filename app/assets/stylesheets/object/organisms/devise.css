@@ -37,7 +37,9 @@
       height: var(--form-input-height);
       padding: var(--form-padding);
       background: var(--form-bg);
-      border: solid 1px var(--form-border-color);
+      border-color: var(--form-border-color);
+      border-style: solid;
+      border-width: var(--form-border-width);
       border-radius: var(--form-border-radius);
       line-height: var(--form-line-height);
       font-size: var(--form-font-size);
