@@ -2,11 +2,29 @@
   width: 100%;
   height: var(--form-textarea-height);
   padding: var(--form-padding);
-  border: solid 1px var(--form-border-color);
+  border-color: var(--form-border-color);
+  border-style: solid;
+  border-width: var(--form-border-width);
   border-radius: var(--form-border-radius);
   line-height: var(--form-line-height);
   font-size: var(--form-font-size);
   &:focus {
     border-color: var(--form-focus-color);
+  }
+  overflow-y: scroll;
+  &:focus {
+    border-color: var(--form-focus-color);
+  }
+  &::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--form-border-color);
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--form-border-color);
   }
 }
