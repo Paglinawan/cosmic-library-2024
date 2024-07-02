@@ -18,13 +18,13 @@ class BooksController < ApplicationController
   
     case params[:sort_by]
     when 'review_star_desc'
-      @books = @books.order(review_star: :desc)
+      @books = @books.order(review_star: :desc, id: :asc)
     when 'review_star_asc'
-      @books = @books.order(review_star: :asc)
+      @books = @books.order(review_star: :asc, id: :asc)
     when 'created_at_asc'
-      @books = @books.order(created_at: :asc)
+      @books = @books.order(created_at: :asc, id: :asc)
     else
-      @books = @books.order(created_at: :desc)
+      @books = @books.order(created_at: :desc, id: :asc)
     end
   
     @page_count_total = @books.count
