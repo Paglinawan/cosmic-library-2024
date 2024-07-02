@@ -61,7 +61,6 @@
 .card-badge {
   display: flex;
   align-items: center;
-  margin-right: 0.4rem;
 }
 .card-title {
   font-size: var(--font-md);
