@@ -15,6 +15,14 @@ class FilmsController < ApplicationController
     if @selected_tags.any?
       @films = @films.joins(:film_tags).where(film_tags: { id: @selected_tags }).distinct
     end
+
+    if params[:is_classic] == "true"
+      @films = @films.where(is_classic: true)
+    end
+    
+    if params[:is_favorite] == "true"
+      @films = @films.where(is_favorite: true)
+    end
   
     case params[:sort_by]
     when 'review_star_desc'
@@ -95,7 +103,6 @@ class FilmsController < ApplicationController
   private
 
   def film_params
-    params.require(:film).permit(:title, :title_en, :review_star, :comment, :is_classic, :is_favorite).merge(film_tag_ids: params[:film_tag_ids])
+    params.require(:film).permit(:title, :title_en, :review_star, :comment, :is_classic, :is_favorite, film_tag_ids: [])
   end
-
 end

@@ -15,6 +15,14 @@ class BooksController < ApplicationController
     if @selected_tags.any?
       @books = @books.joins(:book_tags).where(book_tags: { id: @selected_tags }).distinct
     end
+
+    if params[:is_classic] == "true"
+      @books = @books.where(is_classic: true)
+    end
+    
+    if params[:is_favorite] == "true"
+      @books = @books.where(is_favorite: true)
+    end
   
     case params[:sort_by]
     when 'review_star_desc'
@@ -94,7 +102,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :review_star, :comment, :is_classic, :is_favorite).merge(book_tag_ids: params[:book_tag_ids])
+    params.require(:book).permit(:title, :title_en, :review_star, :comment, :is_classic, :is_favorite, book_tag_ids: [])
   end
 
 end
