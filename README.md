@@ -1,4 +1,4 @@
-# 🫐 Cosmic Library
+# 🪐 Cosmic Library
 
 - [Demo ↗︎](https://cosmic-library.lolipop.io/)
 - [Design ↗︎](https://www.figma.com/proto/jfdga3oO0tinhR97WVfY3v/Cosmic-Library?node-id=2319-659&t=ag25hKFwrUVTy1UQ-1&scaling=min-zoom&page-id=2319%3A108)
@@ -7,13 +7,15 @@
 
 ## ❶ Problems
 
-これまで自分が出会った本や映画のタイトルを友達との話題の時に思い出せなくなる時がある。オススメを聞かれた時にたくさんあるすぎてピックアップに困る時がある。
+- これまで自分が出会った本や映画のタイトルを友達との話題の時に思い出せない
+- オススメを聞かれた時にたくさんありすぎてピックアップに困る
 
 <br>
 
 ## ❷ Solutions
 
-映画と本の一覧ページを作る。スイッチコントローラーで公開／非公開を簡単にする。
+- 映画と本の一覧ページを作る
+- スイッチコントローラーで公開／非公開を簡単にする
 
 <br>
 
@@ -28,8 +30,11 @@
 ```
 - ログイン認証
 - ページャー
-- CRUD機能
+- CRUD
 - Three.js
+- 絞り込み・並び替え
+- 名作・おすすめフラグ
+- アカウントごとに権限を付与
 ```
 
 <br>
