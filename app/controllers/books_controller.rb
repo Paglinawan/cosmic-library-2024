@@ -102,6 +102,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :review_star, :comment, :is_classic, :is_favorite, book_tag_ids: [])
+    params.require(:book).permit(:title, :author, :review_star, :comment, :is_classic, :is_favorite).merge(is_public: 0).merge(book_tag_ids: params[:book_tag_ids])
   end
 end

@@ -103,6 +103,6 @@ class FilmsController < ApplicationController
   private
 
   def film_params
-    params.require(:film).permit(:title, :title_en, :review_star, :comment, :is_classic, :is_favorite, film_tag_ids: [])
+    params.require(:film).permit(:title, :title_en, :review_star, :comment, :is_classic, :is_favorite).merge(is_public: 0).merge(film_tag_ids: params[:film_tag_ids])
   end
 end
