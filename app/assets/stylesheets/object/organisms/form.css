@@ -22,7 +22,7 @@
 }
 .form-items {
   display: grid;
-  gap: 0;
+  gap: 0.4rem;
 }
 .form-actions {
   display: grid;
