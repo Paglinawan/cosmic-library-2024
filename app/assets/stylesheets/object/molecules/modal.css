@@ -21,40 +21,64 @@
   --hover-circle-height: 4rem;
 
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 100;
-  max-width: 64rem;
-  background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
-  color: var(--bg-300);
-  box-shadow: 0 0 3rem 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &.is-anime {
     animation: fadeInBottom 0.8s forwards;
   }
   @media (width > 750px) {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-  }
-  @media (width <= 750px) {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    padding: 3.2rem 0;
   }
 }
 
 .modal-wrapper {
   position: relative;
   z-index: 1;
-  padding: 8rem 4rem 4rem 4rem;
+  width: 100%;
+  max-width: 64rem;
+  max-height: 100%;
+  background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
+  color: var(--bg-300);
+  box-shadow: 0 0 3rem 0 rgba(0, 0, 0, 0.3);
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  @media (width > 750px) {
+    padding: 8rem 4rem 4rem 4rem;
+  }
+  @media (width <= 750px) {
+    padding: 6rem 2rem 4rem 2rem;
+  }
 }
 
 .modal-close {
   position: absolute;
   z-index: inherit;
-  top: 2.8rem;
-  right: 3.2rem;
   cursor: pointer;
+  @media (width > 750px) {
+    top: 3.2rem;
+    right: 2.4rem;
+  }
+  @media (width <= 750px) {
+    top: 2.6rem;
+    right: 2rem;
+  }
 }
 .modal-messages {
   margin: 0.8rem 0 0 1.5em;
