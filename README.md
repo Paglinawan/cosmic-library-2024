@@ -1,7 +1,14 @@
-# 🪐 Cosmic Library
+# Cosmic Library
+![cosmic-library](https://github.com/user-attachments/assets/161a04eb-3553-4aba-bc01-46a8a4b77e11)
+
 
 - [Demo ↗︎](https://cosmic-library.lolipop.io/)
-- [Design ↗︎](https://www.figma.com/proto/jfdga3oO0tinhR97WVfY3v/Cosmic-Library?node-id=2319-659&t=ag25hKFwrUVTy1UQ-1&scaling=min-zoom&page-id=2319%3A108)
+- [Design / Information ↗︎](https://www.figma.com/proto/jfdga3oO0tinhR97WVfY3v/Cosmic-Library?node-id=2319-659&t=ag25hKFwrUVTy1UQ-1&scaling=min-zoom&page-id=2319%3A108)
+
+```
+現在 大幅なリニューアルを予定しています。
+詳細は Design をご覧ください。
+```
 
 <br>
 
@@ -27,7 +34,6 @@
 
 ## ❹ Spec
 
-```
 - ログイン認証
 - ページャー
 - CRUD
@@ -35,7 +41,6 @@
 - 絞り込み・並び替え
 - 名作・おすすめフラグ
 - アカウントごとに権限を付与
-```
 
 <br>
 
@@ -55,9 +60,4 @@
 - ロゴ・プロトタイプも完全オリジナルです
 - Three.js を使用して宇宙空間を再現しました
 
-<br>
-
-## ❼ Capture
-
-https://github.com/Paglinawan/cosmic-library/assets/32391651/c576e3ee-4c5d-4b2f-a5f8-7eaaf0db8061
 
