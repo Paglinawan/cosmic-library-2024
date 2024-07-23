@@ -1,4 +1,3 @@
-# Cosmic Library
 ![cosmic-library](https://github.com/user-attachments/assets/161a04eb-3553-4aba-bc01-46a8a4b77e11)
 
 
@@ -60,4 +59,4 @@
 - ロゴ・プロトタイプも完全オリジナルです
 - Three.js を使用して宇宙空間を再現しました
 
-
+<br>
