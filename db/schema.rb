@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_05_083456) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_05_090553) do
   create_table "book_tags", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "label"
     t.string "label_en"
@@ -25,14 +25,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_05_083456) do
 
   create_table "books", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "title"
-    t.string "author"
-    t.integer "review_star"
+    t.string "title_en"
+    t.string "country"
+    t.string "country_en"
     t.string "comment", limit: 100
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "comment_en"
+    t.string "author"
+    t.string "author_en"
+    t.string "publisher"
+    t.string "publisher_en"
+    t.string "quote"
+    t.string "quote_en"
+    t.integer "review_star"
+    t.integer "year"
     t.boolean "is_public", default: false
     t.boolean "is_classic", default: false, null: false
     t.boolean "is_favorite", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "countries", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
