@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_05_120958) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_06_125439) do
   create_table "book_tags", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "label"
     t.string "label_en"
@@ -30,8 +30,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_05_120958) do
     t.string "comment_en"
     t.string "author"
     t.string "author_en"
-    t.string "publisher"
-    t.string "publisher_en"
+    t.bigint "publisher_id"
     t.string "quote"
     t.string "quote_en"
     t.integer "review_star"
@@ -43,6 +42,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_05_120958) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_books_on_country_id"
+    t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 
   create_table "countries", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -84,6 +84,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_05_120958) do
     t.index ["country_id"], name: "index_films_on_country_id"
   end
 
+  create_table "publishers", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.string "label"
+    t.string "label_en"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -97,5 +104,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_05_120958) do
   end
 
   add_foreign_key "books", "countries"
+  add_foreign_key "books", "publishers"
   add_foreign_key "films", "countries"
 end
