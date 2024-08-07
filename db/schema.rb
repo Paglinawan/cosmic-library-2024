@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_06_125439) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_07_232657) do
   create_table "book_tags", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.string "label"
-    t.string "label_en"
+    t.string "label", null: false
+    t.string "label_en", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -24,19 +24,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_06_125439) do
   end
 
   create_table "books", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.string "title"
-    t.string "title_en"
+    t.string "title", null: false
+    t.string "title_en", null: false
     t.string "comment", limit: 100
     t.string "comment_en"
-    t.string "author"
-    t.string "author_en"
-    t.bigint "publisher_id"
+    t.string "author", null: false
+    t.string "author_en", null: false
+    t.bigint "publisher_id", null: false
     t.string "quote"
     t.string "quote_en"
     t.integer "review_star"
-    t.bigint "country_id"
-    t.integer "year"
-    t.boolean "is_public", default: false
+    t.bigint "country_id", null: false
+    t.integer "year", null: false
+    t.boolean "is_public", default: false, null: false
     t.boolean "is_classic", default: false, null: false
     t.boolean "is_favorite", default: false, null: false
     t.datetime "created_at", null: false
@@ -46,15 +46,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_06_125439) do
   end
 
   create_table "countries", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.string "label"
-    t.string "label_en"
+    t.string "label", null: false
+    t.string "label_en", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "film_tags", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.string "label"
-    t.string "label_en"
+    t.string "label", null: false
+    t.string "label_en", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,18 +65,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_06_125439) do
   end
 
   create_table "films", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.string "title"
-    t.string "title_en"
+    t.string "title", null: false
+    t.string "title_en", null: false
     t.string "comment", limit: 100
     t.string "comment_en"
-    t.string "director"
-    t.string "director_en"
+    t.string "director", null: false
+    t.string "director_en", null: false
     t.string "cast"
     t.string "cast_en"
     t.integer "review_star"
-    t.bigint "country_id"
-    t.integer "year"
-    t.boolean "is_public", default: false
+    t.bigint "country_id", null: false
+    t.integer "year", null: false
+    t.boolean "is_public", default: false, null: false
     t.boolean "is_classic", default: false, null: false
     t.boolean "is_favorite", default: false, null: false
     t.datetime "created_at", null: false
