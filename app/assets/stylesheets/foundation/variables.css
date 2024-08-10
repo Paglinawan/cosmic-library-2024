@@ -1,7 +1,6 @@
 :root {
   /* font */
-  --font-sans: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "メイリオ",
-    Meiryo, "Meiryo UI", sans-serif;
+  --font-sans: "Noto Sans JP", sans-serif;
   --font-en: "Arial Black", sans-serif;
 
   /* font-size */
