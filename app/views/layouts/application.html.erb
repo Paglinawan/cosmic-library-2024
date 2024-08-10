@@ -24,6 +24,9 @@
     <meta property="og:description" content="「Cosmic Library」は、わたしがこれまでに読んだ本や観た映画を記録し、共有できるWEBアプリケーションです。これから出会う作品の無限の可能性と宇宙の無限の広がりが重なるようにデザインしました。">
     <meta property="og:image" content="<%= asset_path('ogp.gif') %>">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -42,10 +45,10 @@
       <nav class="pagenav">
         <ul class="pagenav-list">
           <li class="pagenav-item">
-            <%= link_to "フィルム", root_path, class: "pagenav-anc #{'is-active' if request.path == '/' || request.path.start_with?('/films')}" %>
+            <%= link_to "Films", root_path, class: "pagenav-anc #{'is-active' if request.path == '/' || request.path.start_with?('/films')}" %>
           </li>
           <li class="pagenav-item">
-            <%= link_to "ブック", books_path, class: "pagenav-anc #{'is-active' if request.path.start_with?('/books')}" %>
+            <%= link_to "Books", books_path, class: "pagenav-anc #{'is-active' if request.path.start_with?('/books')}" %>
           </li>
         </ul>
       </nav>
@@ -80,9 +83,9 @@
         <ul class="helpnav-list">
           <li class="helpnav-item"><%= link_to "GitHub", "https://github.com/Paglinawan/cosmic-library", class: "helpnav-anc", target: "_blank" %></li>
           <% if @is_signed %>
-            <li class="helpnav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "helpnav-anc" %></li>
+            <li class="helpnav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "helpnav-anc" %></li>
           <% else %>
-            <li class="helpnav-item"><%= link_to "ログイン", new_user_session_path, class: "helpnav-anc" %></li>
+            <li class="helpnav-item"><%= link_to "SignIn", new_user_session_path, class: "helpnav-anc" %></li>
           <% end %>
         </ul>
         <% if !@is_signed_owner and @is_signed %>

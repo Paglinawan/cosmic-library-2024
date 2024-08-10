@@ -66,6 +66,9 @@
 .block {
   display: block !important;
 }
+.inline-block {
+  display: inline-block !important;
+}
 @media (width > 750px) {
   .pc\:hidden {
     display: none !important;
