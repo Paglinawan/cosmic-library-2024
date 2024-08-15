@@ -14,6 +14,7 @@ gem "bootsnap", require: false
 gem 'pagy'
 gem 'rails-i18n'
 gem 'devise'
+gem 'graphql'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
@@ -21,6 +22,7 @@ end
 
 group :development do
   gem "web-console"
+  gem 'graphiql-rails'
 end
 
 group :test do
