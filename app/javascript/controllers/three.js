@@ -105,5 +105,3 @@ export const animate = function () {
   stars_sub2.rotation.y += 0.001;
   renderer.render(scene, camera);
 };
-
-animate();
