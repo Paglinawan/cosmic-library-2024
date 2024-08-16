@@ -18,6 +18,7 @@ gem 'graphql'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
+  gem 'dotenv-rails'
 end
 
 group :development do
