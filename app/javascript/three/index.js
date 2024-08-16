@@ -1,4 +1,4 @@
-import * as THREE from "three-module";
+import * as THREE from "three/module";
 
 /* ----------------
 - scene
