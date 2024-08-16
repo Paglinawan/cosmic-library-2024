@@ -1,4 +1,4 @@
-import * as THREE from "three";
+import * as THREE from "three/module";
 
 /* ----------------
 - scene
@@ -98,10 +98,11 @@ bg.id = "bg";
 bg.appendChild(renderer.domElement);
 document.body.appendChild(bg);
 
-export const animate = function () {
+const animate = function () {
   requestAnimationFrame(animate);
   stars_main.rotation.y += 0.001;
   stars_sub1.rotation.y += 0.001;
   stars_sub2.rotation.y += 0.001;
   renderer.render(scene, camera);
 };
+animate();

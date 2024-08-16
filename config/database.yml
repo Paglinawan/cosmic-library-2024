@@ -5,8 +5,8 @@ default: &default
   collation: utf8mb4_general_ci
   pool: 5
   timeout: 5000
-  username: paglinawan
-  password: salamatpo
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
 
 development:
   <<: *default
