@@ -47,56 +47,18 @@ class BooksController < ApplicationController
   end
 
   def new
-    @is_modal_open = true
-    @is_anime = true
-    @book = Book.new
-    @tags = BookTag.all.pluck(:label, :id)
   end
 
   def create
-    @is_anime = false
-    @book = Book.new(book_params)
-    @tags = BookTag.all.pluck(:label, :id)
-    
-    if @book.save
-      flash[:notice] = '作成されました'
-      redirect_to books_path
-    else
-      flash.now[:alert] = 'エラーが発生しました'
-      render :new, status: :unprocessable_entity
-    end
   end
 
   def edit
-    @is_anime = true
-    @is_modal_open = true
-    @book = Book.find(params[:id])
-    @tags = BookTag.all.pluck(:label, :id)
-    @selected_tags = @book.book_tags.pluck(:id)
-    session[:return_to] = request.referer
   end
 
   def update
-    @is_anime = false
-    @book = Book.find(params[:id])
-    @tags = BookTag.all.pluck(:label, :id)
-    if @book.update(book_params)
-      flash[:notice] = '更新されました'
-      redirect_to session.delete(:return_to) || books_path
-    else
-      flash.now[:alert] = 'エラーが発生しました'
-      render :edit, status: :unprocessable_entity
-    end
   end
 
   def destroy
-    @book = Book.find(params[:id])
-    if @book.destroy
-      flash[:notice] = '削除されました'
-    else
-      flash[:alert] = 'エラーが発生しました'
-    end
-    redirect_back(fallback_location: books_path)
   end
 
   private
