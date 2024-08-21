@@ -1,37 +1,33 @@
 <%= render 'layouts/flash_messages' %>
 <main class="cards">
-  <% @books.each_with_index do |book, index| %>
-    <%= render partial: 'card', locals: { class_name: "card#{index + 1}", id: book.id, title: book.title, author: book.author, card_star: book.review_star, card_body: book.comment, tags: book.book_tags, is_public: book.is_public, is_classic: book.is_classic, is_favorite: book.is_favorite } %>
+  <% @books.each_with_index do |el, i| %>
+    <article class='card card#{i + 1}'>
+      <%= render partial: 'card_jp', locals: { el: el } %>
+      <button class="card-translate btn-translate">
+        <%= image_tag("icon-translate.svg", alt: "翻訳する", width: 40, height: 40, class: "btn-translate-img") %>
+      </button>
+    </article>
   <% end %>
 </main>
 <aside class="sort">
-  <%= form_with url: books_path, class:"sort-form", method: :get, local: true do %>
-    <div class="sort-chips">
-      <label class="sort-chip-label">
-        <input type="checkbox" name="is_classic" value="true" <%= params[:is_classic] == "true" ? "checked" : "" %>>
-        <span class="sort-chip-txt">名作</span>
-      </label>
-      <label class="sort-chip-label">
-        <input type="checkbox" name="is_favorite" value="true" <%= params[:is_favorite] == "true" ? "checked" : "" %>>
-        <span class="sort-chip-txt">おすすめ</span>
-      </label>
-      <% @selected_tags ||= [] %>
-      <% @tags.each do |tag| %>
-        <label class="sort-chip-label">
-          <input type="checkbox" name="book_tag_ids[]" value="<%= tag[1] %>" <%= @selected_tags.include?(tag[1].to_s) ? "checked" : "" %>>
-          <span class="sort-chip-txt"><%= tag[0] %></span>
-        </label>
-      <% end %>
-    </div>
-    <div class="sort-btm">
-      <%= select_tag :sort_by, options_for_select([['作成日が新しい順に', 'created_at_desc'], ['作成日が古い順に', 'created_at_asc'], ['レビューが高い順に', 'review_star_desc'], ['レビューが低い順に', 'review_star_asc']], params[:sort_by]), class:"sort-select" %>
-      <%= hidden_field_tag :commit, 'sort' %>
-      <%= button_tag '並びかえ', class: 'sort-btn', type: 'submit' %>
-    </div>
-  <% end %>
+  <%= render_sort_form(
+    url: books_path,
+    sort_options: [
+      { name: "is_classic", value: "true", checked: params[:is_classic] == "true", label: "名作" },
+      { name: "is_favorite", value: "true", checked: params[:is_favorite] == "true", label: "おすすめ" },
+      *@tags.map { |tag| { name: "book_tag_ids[]", value: tag[1], checked: @selected_tags.include?(tag[1].to_s), label: tag[0] } }
+    ],
+    sort_by_options: [
+      ['作成日が新しい順に', 'created_at_desc'],
+      ['作成日が古い順に', 'created_at_asc'],
+      ['レビューが高い順に', 'review_star_desc'],
+      ['レビューが低い順に', 'review_star_asc']
+    ],
+    selected_sort_by: params[:sort_by]
+  ) %>
 </aside>
 <%== pagy_nav(@pagy) %>
 <div class="page-count">
-  <div class="page-count-bar"><span class="page-count-bar-active" style="width: <%= @page_count_active_width %>%;"></span></div>
-  <p class="page-count-text">全<%= @page_count_total %>件</p>
+  <div class="page-count-bar"><span class="page-count-bar-active" style="width: <%= @page_active_width %>%;"></span></div>
+  <p class="page-count-text">全<%= @page_total %>件</p>
 </div>
