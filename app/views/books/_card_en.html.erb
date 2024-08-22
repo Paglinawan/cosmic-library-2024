@@ -22,23 +22,25 @@
   </p>
   <p class="card-when-where"><%= el.year %>/<%= el.country.label_en %></p>
 </div>
-<p class="card-body"><%= el.comment_en %></p>
-<details class="card-details">
-  <summary class="toggle-more"><span class="toggle-more-close">Close</span><span class="toggle-more-open">Open</span></summary>
-  <dl class="card-info-dl">
-    <% if el.author_en.present? %>
-      <dt class="card-info-dt">Author</dt>
-      <dd class="card-info-dd"><%= el.author_en %></dd>
-    <% end %>
+<% if el.comment_en.present? %><p class="card-body"><%= el.comment_en %></p><% end %>
+<% if el.author_en.present? || el.publisher.label_en.present? || el.quote_en.present? %>
+  <details class="card-details">
+    <summary class="toggle-more"><span class="toggle-more-close">Close</span><span class="toggle-more-open">Open</span></summary>
+    <dl class="card-info-dl">
+      <% if el.author_en.present? %>
+        <dt class="card-info-dt">Author</dt>
+        <dd class="card-info-dd"><%= el.author_en %></dd>
+      <% end %>
 
-    <% if el.publisher.present? %>
-      <dt class="card-info-dt">Publisher</dt>
-      <dd class="card-info-dd"><%= el.publisher.label_en %></dd>
-    <% end %>
+      <% if el.publisher.present? %>
+        <dt class="card-info-dt">Publisher</dt>
+        <dd class="card-info-dd"><%= el.publisher.label_en %></dd>
+      <% end %>
 
-    <% if el.quote_en.present? %>
-      <dt class="card-info-dt">Quote</dt>
-      <dd class="card-info-dd"><%= el.quote_en %></dd>
-    <% end %>
-  </dl>
-</details>
+      <% if el.quote_en.present? %>
+        <dt class="card-info-dt">Quote</dt>
+        <dd class="card-info-dd"><%= el.quote_en %></dd>
+      <% end %>
+    </dl>
+  </details>
+<% end %>
