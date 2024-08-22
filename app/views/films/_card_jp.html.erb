@@ -23,15 +23,17 @@
   <p class="card-when-where"><%= el.year %>/<%= el.country.label %></p>
 </div>
 <p class="card-body"><%= el.comment %></p>
-<dl class="card-info-dl">
-  <% if el.director.present? %>
-    <dt class="card-info-dt">監督</dt>
-    <dd class="card-info-dd"><%= el.director %></dd>
-  <% end %>
-
-  <% if el.cast.present? %>
-    <dt class="card-info-dt">キャスト</dt>
-    <dd class="card-info-dd"><%= el.cast %></dd>
-  <% end %>
-</dl>
-<p class="toggle-more">閉じる</p>
+<details class="card-details">
+  <summary class="toggle-more"><span class="toggle-more-close">閉じる</span><span class="toggle-more-open">開く</span></summary>
+  <dl class="card-info-dl">
+    <% if el.director.present? %>
+      <dt class="card-info-dt">監督</dt>
+      <dd class="card-info-dd"><%= el.director %></dd>
+    <% end %>
+  
+    <% if el.cast.present? %>
+      <dt class="card-info-dt">キャスト</dt>
+      <dd class="card-info-dd"><%= el.cast %></dd>
+    <% end %>
+  </dl>
+</details>

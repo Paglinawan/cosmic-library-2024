@@ -23,15 +23,17 @@
   <p class="card-when-where"><%= el.year %>/<%= el.country.label_en %></p>
 </div>
 <p class="card-body"><%= el.comment_en %></p>
-<dl class="card-info-dl">
-  <% if el.director_en.present? %>
-    <dt class="card-info-dt">Directer</dt>
-    <dd class="card-info-dd"><%= el.director_en %></dd>
-  <% end %>
+<details class="card-details">
+  <summary class="toggle-more"><span class="toggle-more-close">Close</span><span class="toggle-more-open">Open</span></summary>
+  <dl class="card-info-dl">
+    <% if el.director_en.present? %>
+      <dt class="card-info-dt">Directer</dt>
+      <dd class="card-info-dd"><%= el.director_en %></dd>
+    <% end %>
 
-  <% if el.cast_en.present? %>
-    <dt class="card-info-dt">Cast</dt>
-    <dd class="card-info-dd"><%= el.cast_en %></dd>
-  <% end %>
-</dl>
-<p class="toggle-more">Close</p>
+    <% if el.cast_en.present? %>
+      <dt class="card-info-dt">Cast</dt>
+      <dd class="card-info-dd"><%= el.cast_en %></dd>
+    <% end %>
+  </dl>
+</details>

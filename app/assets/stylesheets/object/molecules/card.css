@@ -117,7 +117,22 @@
   line-height: 1.4;
   letter-spacing: 0.02em;
 }
+.card-details {
+  position: relative;
+  padding-bottom: 1.6rem;
+  &[open] {
+    .toggle-more-open {
+      display: none;
+    }
+  }
+  &:not([open]) {
+    .toggle-more-close {
+      display: none;
+    }
+  }
+}
 .card-info-dl {
+  padding-bottom: 1.6rem;
   color: var(--text-200);
   font-size: var(--font-xs);
   line-height: 1.4;
@@ -135,6 +150,10 @@
   margin-top: 0.4rem;
 }
 .toggle-more {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   padding: 0.4rem;
   border-image: linear-gradient(
       to right,
@@ -147,6 +166,7 @@
   line-height: 1.4;
   text-align: center;
   opacity: 0.4;
+  cursor: pointer;
 }
 .card-translate {
   position: absolute;
