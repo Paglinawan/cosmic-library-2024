@@ -1,0 +1,16 @@
+.btn-translate {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: 99rem;
+}
+.btn-translate-img {
+  opacity: 0.6;
+  transition: all var(--duration-400);
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+}
