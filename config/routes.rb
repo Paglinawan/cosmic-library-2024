@@ -6,8 +6,19 @@ Rails.application.routes.draw do
   devise_for :users, skip: :registrations
   root "films#index"
 
-  resources :films
-  resources :books
+  resources :films do
+    member do
+      get 'card_en'
+      get 'card_jp'
+    end
+  end
+
+  resources :books do
+    member do
+      get 'card_en'
+      get 'card_jp'
+    end
+  end
 
   namespace :api do
     namespace :v1 do

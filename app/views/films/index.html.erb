@@ -1,9 +1,11 @@
 <%= render 'layouts/flash_messages' %>
 <main class="cards">
   <% @films.each_with_index do |el, i| %>
-    <article class='card card#{i + 1}'>
-      <%= render partial: 'card_en', locals: { el: el } %>
-      <button class="card-translate btn-translate">
+    <article class='card card#{i + 1}' data-controller="toggle-card" data-model-id="<%= el.id %>" data-model-type="film">
+      <div class='card-wrap' data-toggle-card-target="content">
+        <%= render partial: 'card_jp', locals: { el: el } %>
+      </div>
+      <button data-action="click->toggle-card#toggleCardType" class="card-translate btn-translate">
         <%= image_tag("icon-translate.svg", alt: "翻訳する", width: 40, height: 40, class: "btn-translate-img") %>
       </button>
     </article>

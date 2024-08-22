@@ -31,6 +31,14 @@ class FilmsController < ApplicationController
   def destroy
   end
 
+  def card_en
+    render_card_partial(Film, 'card_en')
+  end
+
+  def card_jp
+    render_card_partial(Film, 'card_jp')
+  end
+
   private
 
   def filter_params
@@ -39,5 +47,10 @@ class FilmsController < ApplicationController
       is_classic: params[:is_classic] == "true",
       is_favorite: params[:is_favorite] == "true"
     }
+  end
+
+  def render_card_partial(model_class, partial_name)
+    @el = model_class.find(params[:id])
+    render partial: partial_name, locals: { el: @el }
   end
 end
