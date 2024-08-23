@@ -11,10 +11,12 @@
     </article>
   <% end %>
 </main>
-<div data-controller="toggle-lang">
-  <button data-action="click->toggle-lang#toggleLang" class="btn-translate">
-    <%= image_tag("icon-translate.svg", alt: "翻訳する", width: 40, height: 40, class: "btn-translate-img") %>
-  </button>
+<aside class="sort" data-controller="toggle-lang">
+  <div class="sort-translate">
+    <button data-action="click->toggle-lang#toggleLang" class="btn-translate">
+      <%= image_tag("icon-translate.svg", alt: "翻訳する", width: 40, height: 40, class: "btn-translate-img") %>
+    </button>
+  </div>
   <div data-toggle-lang-target="contentJp">
     <%= render partial: 'partials/sort', locals: {
       url: films_path,
@@ -54,4 +56,4 @@
       count_text: "All #{@page_total} items",
     } %>
   </div>
-</div>
+</aside>

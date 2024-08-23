@@ -1,13 +1,11 @@
-<aside class="sort">
-  <%= render_sort_form(
-    url: url,
-    sort_options: [
-      { name: "is_classic", value: "true", checked: params[:is_classic] == "true", label: classic_label },
-      { name: "is_favorite", value: "true", checked: params[:is_favorite] == "true", label: favorite_label },
-      *@tags.map { |tag| { name: tag_name, value: tag[2], checked: @selected_tags.include?(tag[2].to_s), label: tag[tag_label_index] } }
-    ],
-    sort_by_options: sort_by_options,
-    selected_sort_by: params[:sort_by],
-    submit_text: submit_text
-  ) %>
-</aside>
+<%= render_sort_form(
+  url: url,
+  sort_options: [
+    { name: "is_classic", value: "true", checked: params[:is_classic] == "true", label: classic_label },
+    { name: "is_favorite", value: "true", checked: params[:is_favorite] == "true", label: favorite_label },
+    *@tags.map { |tag| { name: tag_name, value: tag[2], checked: @selected_tags.include?(tag[2].to_s), label: tag[tag_label_index] } }
+  ],
+  sort_by_options: sort_by_options,
+  selected_sort_by: params[:sort_by],
+  submit_text: submit_text
+) %>
