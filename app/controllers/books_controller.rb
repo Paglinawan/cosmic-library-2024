@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   include Paginatable
 
   def index
-    @tags = BookTag.all.pluck(:label, :id)
+    @tags = BookTag.all.pluck(:label, :label_en, :id)
     @selected_tags = params[:book_tag_ids] || []
     @records = apply_filters(Book, filter_params, tag_type: :book_tags)
     

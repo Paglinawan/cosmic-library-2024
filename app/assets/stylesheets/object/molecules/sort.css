@@ -2,11 +2,12 @@
   position: relative;
   z-index: 2;
   @media (width > 750px) {
-    margin-top: 3.2rem;
+    margin-top: 4.8rem;
   }
   @media (width <= 750px) {
     position: relative;
     z-index: 1;
+    margin-top: 1.6rem;
     &::before {
       content: "";
       display: inline-block;
@@ -22,6 +23,23 @@
         rgba(255, 255, 255, 0)
       );
     }
+  }
+
+  .sort-chip-label:first-of-type {
+    padding-left: 4.8rem;
+  }
+}
+.sort-translate {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  background: var(--bg-100);
+  border-radius: 50%;
+  @media (width > 750px) {
+    top: -1.8rem;
+  }
+  @media (width <= 750px) {
+    top: 0.6rem;
   }
 }
 .sort-chips {
@@ -96,7 +114,7 @@
 .sort-select {
   display: flex;
   align-items: center;
-  width: 14.8rem;
+  width: 18rem;
   padding: 0 1.2rem;
   background: var(--bg-300);
   border-radius: 0.4rem;
