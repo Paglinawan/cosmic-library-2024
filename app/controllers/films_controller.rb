@@ -6,7 +6,7 @@ class FilmsController < ApplicationController
   include Paginatable
 
   def index
-    @tags = FilmTag.all.pluck(:label, :id)
+    @tags = FilmTag.all.pluck(:label, :label_en, :id)
     @selected_tags = params[:film_tag_ids] || []
     @records = apply_filters(Film, filter_params, tag_type: :film_tags)
     

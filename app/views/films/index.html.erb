@@ -11,25 +11,47 @@
     </article>
   <% end %>
 </main>
-<aside class="sort">
-  <%= render_sort_form(
-    url: films_path,
-    sort_options: [
-      { name: "is_classic", value: "true", checked: params[:is_classic] == "true", label: "名作" },
-      { name: "is_favorite", value: "true", checked: params[:is_favorite] == "true", label: "おすすめ" },
-      *@tags.map { |tag| { name: "film_tag_ids[]", value: tag[1], checked: @selected_tags.include?(tag[1].to_s), label: tag[0] } }
-    ],
-    sort_by_options: [
-      ['作成日が新しい順に', 'created_at_desc'],
-      ['作成日が古い順に', 'created_at_asc'],
-      ['レビューが高い順に', 'review_star_desc'],
-      ['レビューが低い順に', 'review_star_asc']
-    ],
-    selected_sort_by: params[:sort_by]
-  ) %>
-</aside>
-<%== pagy_nav(@pagy) %>
-<div class="page-count">
-  <div class="page-count-bar"><span class="page-count-bar-active" style="width: <%= @page_active_width %>%;"></span></div>
-  <p class="page-count-text">全<%= @page_total %>件</p>
+<div data-controller="toggle-lang">
+  <button data-action="click->toggle-lang#toggleLang" class="btn-translate">
+    <%= image_tag("icon-translate.svg", alt: "翻訳する", width: 40, height: 40, class: "btn-translate-img") %>
+  </button>
+  <div data-toggle-lang-target="contentJp">
+    <%= render partial: 'partials/sort', locals: {
+      url: films_path,
+      classic_label: "名作",
+      favorite_label: "おすすめ",
+      tag_name: "film_tag_ids[]",
+      tag_label_index: 0,
+      sort_by_options: [
+        ['作成日が新しい順に', 'created_at_desc'],
+        ['作成日が古い順に', 'created_at_asc'],
+        ['レビューが高い順に', 'review_star_desc'],
+        ['レビューが低い順に', 'review_star_asc']
+      ],
+      submit_text: "並びかえ"
+    } %>
+    <%= render partial: 'partials/pagy_nav', locals: {
+      count_text: "全 #{@page_total} 件",
+    } %>
+  </div>
+
+  <div data-toggle-lang-target="contentEn" class="hidden">
+    <%= render partial: 'partials/sort', locals: {
+      url: films_path,
+      classic_label: "Classic",
+      favorite_label: "Recommend",
+      tag_name: "film_tag_ids[]",
+      tag_label_index: 1,
+      sort_by_options: [
+        ['By Newest Creation Date', 'created_at_desc'],
+        ['By Oldest Creation Date', 'created_at_asc'],
+        ['By Highest Reviews', 'review_star_desc'],
+        ['By Lowest Reviews', 'review_star_asc']
+      ],
+      submit_text: "Sort"
+    } %>
+    <%= render partial: 'partials/pagy_nav', locals: {
+      count_text: "All #{@page_total} items",
+    } %>
+  </div>
 </div>
