@@ -1,8 +1,10 @@
-![cosmic-library](https://github.com/user-attachments/assets/161a04eb-3553-4aba-bc01-46a8a4b77e11)
+
+![head](https://github.com/user-attachments/assets/36d986f5-a5c8-43e2-ac1d-18a9aeba9f46)
+
 
 
 - [Demo ↗︎](https://cosmic-library.lolipop.io/)
-- [Design / Information ↗︎](https://www.figma.com/proto/jfdga3oO0tinhR97WVfY3v/Cosmic-Library?node-id=2319-659&t=ag25hKFwrUVTy1UQ-1&scaling=min-zoom&page-id=2319%3A108)
+- [Design / Information ↗︎](https://www.figma.com/proto/jfdga3oO0tinhR97WVfY3v/Cosmic-Library?node-id=2319-659&t=s2up9AY6piHJ7pDs-1&scaling=min-zoom&content-scaling=fixed&page-id=2319%3A108)
 
 ```
 現在 大幅なリニューアルを予定しています。
@@ -36,10 +38,9 @@
 - ログイン認証
 - ページャー
 - CRUD
-- Three.js
 - 絞り込み・並び替え
 - 名作・おすすめフラグ
-- アカウントごとに権限を付与
+- 翻訳
 
 <br>
 
@@ -49,8 +50,8 @@
 - MySQL、Database Client
 - ロリポップマネージドクラウド
 - JavaScript
-- Ruby
 - CSS
+- SVG アニメーション
 
 <br>
 
