@@ -1,4 +1,8 @@
-.form-fixed-btn {
+.create-btn {
+  position: fixed;
+  z-index: 10;
+  right: 1.6rem;
+  bottom: 1.6rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;

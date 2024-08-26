@@ -37,6 +37,15 @@
   &:nth-child(6) {
     animation-delay: 0.6s;
   }
+  &:nth-child(7) {
+    animation-delay: 0.7s;
+  }
+  &:nth-child(8) {
+    animation-delay: 0.8s;
+  }
+  &:nth-child(9) {
+    animation-delay: 0.9s;
+  }
 }
 .card-wrap {
   display: grid;

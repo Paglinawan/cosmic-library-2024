@@ -11,7 +11,7 @@ class FilmsController < ApplicationController
     @records = apply_filters(Film, filter_params, tag_type: :film_tags)
     
     apply_sorting(params[:sort_by])
-    apply_pagination(6)
+    apply_pagination(9)
     
     @films = @records.includes(:country, :film_tags)
   end
