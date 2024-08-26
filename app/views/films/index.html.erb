@@ -1,4 +1,4 @@
-<%= render 'layouts/flash_messages' %>
+<%= render 'partials/flash_messages' %>
 <main class="cards">
   <% @films.each_with_index do |el, i| %>
     <article class='card card#{i + 1}' data-controller="toggle-card" data-model-id="<%= el.id %>" data-model-type="film">

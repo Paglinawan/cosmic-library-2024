@@ -1,7 +1,7 @@
 .helpnav {
   @media (width > 750px) {
     position: sticky;
-    top: 26rem; /* TODO: PC GNAV */
+    top: 28rem; /* TODO: PC GNAV */
     grid-column-start: 1;
     margin-top: 6.4rem;
   }

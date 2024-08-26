@@ -11,7 +11,7 @@ class BooksController < ApplicationController
     @records = apply_filters(Book, filter_params, tag_type: :book_tags)
     
     apply_sorting(params[:sort_by])
-    apply_pagination(6)
+    apply_pagination(9)
     
     @books = @records.includes(:country, :book_tags)
   end
