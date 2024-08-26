@@ -5,6 +5,8 @@ class FilmsController < ApplicationController
   include Sortable
   include Paginatable
 
+  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
+
   def index
     @tags = FilmTag.all.pluck(:label, :label_en, :id)
     @selected_tags = params[:film_tag_ids] || []
@@ -40,6 +42,10 @@ class FilmsController < ApplicationController
   end
 
   private
+
+  def authenticate_user!
+    redirect_to root_path unless @is_signed
+  end
 
   def filter_params
     {

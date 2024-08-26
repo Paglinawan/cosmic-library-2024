@@ -5,6 +5,8 @@ class BooksController < ApplicationController
   include Sortable
   include Paginatable
 
+  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
+
   def index
     @tags = BookTag.all.pluck(:label, :label_en, :id)
     @selected_tags = params[:book_tag_ids] || []
@@ -40,6 +42,10 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def authenticate_user!
+    redirect_to books_path unless @is_signed
+  end
 
   def filter_params
     {
