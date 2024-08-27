@@ -1,0 +1,43 @@
+<%= form_with(model: @film, url: films_path, local: true, html: { class: "form max-w-157" }) do |f| %>
+  <%= render partial: 'partials/form_review_star', locals: { review_star: @film.review_star } %>
+  <div class="form-items mt-14">
+    <%= f.label :title, "タイトル", class: "form-required" do %>
+      <%= f.text_field :title, class: "form-input", placeholder: "タイトルを入力してください", required: true %>
+    <% end %>
+    <%= f.label :title_en, "タイトル（英語）", class: "form-required form-item-en" do %>
+      <%= f.text_field :title_en, class: "form-input", placeholder: "タイトル（英語）を入力してください", required: true %>
+    <% end %>
+    <div class="flex gap-3 max-w-82">
+      <%= f.select :country_id, options_from_collection_for_select(Country.all, :id, :label), {}, class: "form-select" %>
+      <%= f.select :year, options_for_select((1900..Time.current.year).to_a.reverse), {}, class: "form-select" %>
+    </div>
+    <%= f.label :comment, "コメント" do %>
+      <%= f.text_field :comment, class: "form-textarea", maxlength: 100, placeholder: "コメントを入力してください" %>
+    <% end %>
+    <%= f.label :comment_en, "コメント（英語）", class: "form-item-en" do %>
+      <%= f.text_field :comment_en, class: "form-textarea", maxlength: 100, placeholder: "コメント（英語）を入力してください" %>
+    <% end %>
+    <%= f.label :director, "監督名", class: "form-required" do %>
+      <%= f.text_field :director, class: "form-input", placeholder: "監督名を入力してください", required: true %>
+    <% end %>
+    <%= f.label :director_en, "監督名（英語）", class: "form-required form-item-en" do %>
+      <%= f.text_field :director_en, class: "form-input", placeholder: "監督名（英語）を入力してください", required: true %>
+    <% end %>
+    <%= f.label :cast, "キャスト" do %>
+      <%= f.text_field :cast, class: "form-input", placeholder: "キャストを入力してください" %>
+    <% end %>
+    <%= f.label :cast_en, "キャスト（英語）", class: "form-item-en" do %>
+      <%= f.text_field :cast_en, class: "form-input", placeholder: "キャスト（英語）を入力してください" %>
+    <% end %>
+  </div>
+  <p class="form-memo">左上の●は入力必須です</p>
+
+  <div class="mt-6">
+    <%= render partial: "partials/form_tags", locals: { tag_name: "film_tag_ids[]" } %>
+  </div>
+
+  <div class="flex gap-3 mt-10">
+    <%= f.submit "作成する", class: "form-btn" %>
+    <%= link_to "キャンセル", films_path, class: "form-btn is-cancel" %>
+  </div>
+<% end %>
