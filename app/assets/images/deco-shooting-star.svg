@@ -1,0 +1,39 @@
+<svg viewBox="0 0 201 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+#shooting-star {
+  --stroke-default: 300;
+  --stroke-double: 600;
+  --stroke-default-negative: -300;
+
+  stroke-width: 1;
+  linecap: round;
+  stroke-dasharray: var(--stroke-default);
+  stroke-dashoffset: var(--stroke-default);
+
+  animation-name: charAnime;
+  animation-duration: .3s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-delay: .8s;
+}
+
+@keyframes charAnime {
+  0% {
+    stroke-dasharray: var(--stroke-default);
+    stroke-dashoffset: var(--stroke-default);
+  }
+  100% {
+    stroke-dasharray: var(--stroke-double);
+  }
+}
+</style>
+
+<path d="M1 83.5206C50 35.5206 147 0.0206101 201 1.02061" stroke="url(#shooting-star-stroke)" id="shooting-star"/>
+<defs>
+<linearGradient id="shooting-star-stroke" x1="201" y1="1.00001" x2="0.999998" y2="84" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>

@@ -2,7 +2,6 @@
   position: fixed;
   z-index: 10;
   right: 1.6rem;
-  bottom: 1.6rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -17,5 +16,11 @@
   filter: drop-shadow(0px 4px 20px rgba(255, 255, 255, 0.3));
   svg {
     fill: var(--bg-300);
+  }
+  @media (width > 750px) {
+    bottom: 2.4rem;
+  }
+  @media (width <= 750px) {
+    bottom: 1.6rem;
   }
 }

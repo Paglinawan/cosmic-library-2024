@@ -69,6 +69,43 @@
 .inline-block {
   display: inline-block !important;
 }
+
+/* flex */
+.flex {
+  display: flex !important;
+}
+.gap-1 {
+  gap: 0.4rem !important;
+}
+.gap-2 {
+  gap: 0.8rem !important;
+}
+.gap-3 {
+  gap: 1.2rem !important;
+}
+.gap-4 {
+  gap: 1.6rem !important;
+}
+
+/* width */
+.max-w-82 {
+  max-width: 32.8rem !important;
+}
+.max-w-157 {
+  max-width: 62.8rem !important;
+}
+
+/* margin */
+.mt-6 {
+  margin-top: 2.4rem !important;
+}
+.mt-10 {
+  margin-top: 4rem !important;
+}
+.mt-14 {
+  margin-top: 5.6rem !important;
+}
+
 @media (width > 750px) {
   .pc\:hidden {
     display: none !important;

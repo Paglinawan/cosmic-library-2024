@@ -1,0 +1,14 @@
+.form-review-stars {
+  display: flex;
+  gap: 0.1rem;
+}
+.form-review-stars-label {
+  font-size: var(--font-lg);
+  color: var(--primary-100);
+  cursor: pointer;
+}
+.form-review-stars-input:checked
+  ~ .form-review-stars-label
+  ~ .form-review-stars-label {
+  color: var(--text-200);
+}

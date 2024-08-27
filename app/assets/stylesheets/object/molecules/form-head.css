@@ -1,0 +1,15 @@
+.form-head {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 9rem;
+}
+.form-head-heading {
+  font-size: var(--font-lg);
+  letter-spacing: 0.1em;
+}
+.form-head-star {
+  position: absolute;
+  z-index: inherit;
+  left: -4.8rem;
+  bottom: -1rem;
+}

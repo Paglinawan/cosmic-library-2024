@@ -6,6 +6,7 @@
   border-style: solid;
   border-width: var(--form-border-width);
   border-radius: var(--form-border-radius);
+  background: var(--form-bg-color);
   line-height: var(--form-line-height);
   font-size: var(--form-font-size);
   &:focus {
