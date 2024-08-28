@@ -5,7 +5,6 @@
 }
 .form-head-heading {
   font-size: var(--font-lg);
-  letter-spacing: 0.1em;
 }
 .form-head-star {
   position: absolute;

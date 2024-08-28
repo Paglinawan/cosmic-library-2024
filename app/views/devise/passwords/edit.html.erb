@@ -1,27 +1,24 @@
-<section class="devise">
-  <h2>パスワードを変更する</h2>
-
+<section class="form max-w-157">
+  <%= render partial: 'partials/form_head', locals: { heading: "パスワードを変更する" } %>
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <%= f.hidden_field :reset_password_token %>
-
-    <div class="field">
-      <%= f.label :password, "新しいパスワード" %><br />
-      <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> 文字以上必要)</em><br />
-      <% end %>
-      <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+    <div class="form-items">
+      <div class="form-item">
+        <%= f.label :password, "新しいパスワード" %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 文字以上必要)</em>
+        <% end %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-input" %>
+      </div>
+      <div class="form-item">
+        <%= f.label :password_confirmation, "新しいパスワードの確認" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-input" %>
+      </div>
     </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation, "新しいパスワードの確認" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "パスワードを変更する" %>
+    <div class="mt-14">
+      <%= f.submit "パスワードを変更する", class: "form-btn" %>
     </div>
   <% end %>
-
   <%= render "devise/shared/links" %>
 </section>
