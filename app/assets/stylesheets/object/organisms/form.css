@@ -25,6 +25,10 @@
   display: grid;
   gap: 2rem;
 }
+.form-item {
+  display: grid;
+  gap: 0.4rem;
+}
 .form-item-en {
   @media (width > 750px) {
     margin-left: 4.8rem;
