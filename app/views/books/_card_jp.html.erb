@@ -46,10 +46,10 @@
 <% end %>
 <% if @is_signed %>
   <div class="card-controller">
-    <%= button_to book_path(el.id), method: :delete, class: 'card-delete cursor-pointer', onclick: "return confirm('本当に削除しますか？');" do %>
+    <%= button_to book_path(el.id), method: :delete, class: 'card-delete cursor-pointer hover:bg-circle', onclick: "return confirm('本当に削除しますか？');" do %>
       <%= image_tag("icon-trash.svg", alt: "Cosmic Library", width: 24, height: 24) %>
     <% end %>
-    <%= link_to edit_book_path(el.id), class: 'card-edit cursor-pointer' do %>
+    <%= link_to edit_book_path(el.id), class: 'card-edit cursor-pointer hover:bg-circle' do %>
       <%= image_tag("icon-edit.svg", alt: "Cosmic Library", width: 24, height: 24) %>
     <% end %>
     <label class="form-switch">
