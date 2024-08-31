@@ -10,12 +10,12 @@ class FilmsController < ApplicationController
   def index
     set_all_tags
     set_params_tags
-    records = apply_filters(Film, filter_params, tag_type: :film_tags)
+    @records = apply_filters(Film, filter_params, tag_type: :film_tags)
 
     apply_sorting(params[:sort_by])
     apply_pagination(9)
 
-    @films = records.includes(:country, :film_tags)
+    @films = @records.includes(:country, :film_tags)
   end
 
   def new
