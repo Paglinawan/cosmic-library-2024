@@ -4,23 +4,28 @@ class BooksController < ApplicationController
   include Filterable
   include Sortable
   include Paginatable
-  include Taggable
 
   before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
-  set_taggable_options tag_class: BookTag, tag_param_key: :book_tag_ids
 
   def index
+    set_all_tags
+    set_params_tags
     @records = apply_filters(Book, filter_params, tag_type: :book_tags)
+
     apply_sorting(params[:sort_by])
     apply_pagination(9)
+
     @books = @records.includes(:country, :book_tags)
   end
 
   def new
+    set_all_tags
     @book = Book.new
+    set_book_tags
   end
 
   def create
+    set_all_tags
     @book = Book.new(book_params)
     
     if @book.save
@@ -30,15 +35,22 @@ class BooksController < ApplicationController
       flash.now[:alert] = 'エラーが発生しました'
       render :new, status: :unprocessable_entity
     end
+
+    set_book_tags
   end
 
   def edit
+    set_all_tags
+
     @book = Book.find(params[:id])
+
+    set_book_tags
   end
 
   def update
-    @book = Book.find(params[:id])
+    set_all_tags
 
+    @book = Book.find(params[:id])
     if @book.update(book_params)
       flash[:notice] = '更新されました'
       redirect_to session.delete(:return_to) || books_path
@@ -46,6 +58,8 @@ class BooksController < ApplicationController
       flash.now[:alert] = 'エラーが発生しました'
       render :edit, status: :unprocessable_entity
     end
+
+    set_book_tags
   end
 
   def destroy
@@ -88,13 +102,15 @@ class BooksController < ApplicationController
       :year,
       :is_classic,
       :is_favorite,
-      book_tag_ids: []
-    )
+    ).merge(book_tag_ids: params[:book_tag_ids]).tap do |whitelisted|
+      whitelisted[:review_star] ||= 3
+    end
   end
+  
 
   def filter_params
     {
-      tags: @selected_tags,
+      tags: @params_tags,
       is_classic: params[:is_classic] == "true",
       is_favorite: params[:is_favorite] == "true"
     }
@@ -104,4 +120,17 @@ class BooksController < ApplicationController
     @el = model_class.find(params[:id])
     render partial: partial_name, locals: { el: @el }
   end
+
+  def set_all_tags
+    @all_tags = BookTag.all.pluck(:label, :label_en, :id)
+  end
+  
+  def set_params_tags
+    @params_tags = params[:book_tag_ids] || []
+  end
+
+  def set_book_tags
+    @book_tags = @book.book_tags.pluck(:id) || []
+  end
+
 end

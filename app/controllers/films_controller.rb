@@ -4,23 +4,29 @@ class FilmsController < ApplicationController
   include Filterable
   include Sortable
   include Paginatable
-  include Taggable
 
   before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
-  set_taggable_options tag_class: FilmTag, tag_param_key: :film_tag_ids
 
   def index
-    @records = apply_filters(Film, filter_params, tag_type: :film_tags)
+    set_all_tags
+    set_params_tags
+    records = apply_filters(Film, filter_params, tag_type: :film_tags)
+
     apply_sorting(params[:sort_by])
     apply_pagination(9)
-    @films = @records.includes(:country, :film_tags)
+
+    @films = records.includes(:country, :film_tags)
   end
 
   def new
-    @film = Film.new(review_star: 3)
+    set_all_tags
+    @film = Film.new
+    set_film_tags
   end
 
   def create
+    set_all_tags
+
     @film = Film.new(film_params)
     if @film.save
       flash[:notice] = '作成されました'
@@ -29,13 +35,21 @@ class FilmsController < ApplicationController
       flash.now[:alert] = 'エラーが発生しました'
       render :new, status: :unprocessable_entity
     end
+
+    set_film_tags
   end
 
   def edit
+    set_all_tags
+
     @film = Film.find(params[:id])
+
+    set_film_tags
   end
 
   def update
+    set_all_tags
+
     @film = Film.find(params[:id])
     if @film.update(film_params)
       flash[:notice] = '更新されました'
@@ -44,6 +58,8 @@ class FilmsController < ApplicationController
       flash.now[:alert] = 'エラーが発生しました'
       render :edit, status: :unprocessable_entity
     end
+
+    set_film_tags
   end
 
   def destroy
@@ -83,16 +99,16 @@ class FilmsController < ApplicationController
       :review_star,
       :country_id,
       :year,
-      :is_public,
       :is_classic,
       :is_favorite,
-      film_tag_ids: []
-    )
+    ).merge(film_tag_ids: params[:film_tag_ids]).tap do |whitelisted|
+      whitelisted[:review_star] ||= 3
+    end
   end
 
   def filter_params
     {
-      tags: @selected_tags,
+      tags: @params_tags,
       is_classic: params[:is_classic] == "true",
       is_favorite: params[:is_favorite] == "true"
     }
@@ -102,4 +118,17 @@ class FilmsController < ApplicationController
     @el = model_class.find(params[:id])
     render partial: partial_name, locals: { el: @el }
   end
+
+  def set_all_tags
+    @all_tags = FilmTag.all.pluck(:label, :label_en, :id)
+  end
+  
+  def set_params_tags
+    @params_tags = params[:film_tag_ids] || []
+  end
+
+  def set_film_tags
+    @film_tags = @film.film_tags.pluck(:id) || []
+  end
+
 end

@@ -1,5 +1,5 @@
-<%= form_with(model: @book, url: books_path, local: true, html: { class: "form max-w-157" }) do |f| %>
-  <%= render partial: 'partials/form_review_star', locals: { review_star: @book.review_star } %>
+<%= form_with model: @book, html: { class: "form max-w-157" }  do |f| %>
+  <%= render partial: 'partials/form_review_star', locals: { review_star: @book.review_star || 3 } %>
   <div class="form-items mt-14">
     <%= f.label :title, "タイトル", class: "form-required" do %>
       <%= f.text_field :title, class: "form-input", placeholder: "タイトルを入力してください", required: true %>
@@ -34,11 +34,26 @@
   <p class="form-memo">左上の●は入力必須です</p>
 
   <div class="mt-6">
-    <%= render partial: "partials/form_tags", locals: { tag_name: "book_tag_ids[]" } %>
+    <div class="sort-chips">
+      <label class="sort-chip-label">
+        <%= f.check_box :is_classic %>
+        <span class="sort-chip-txt">名作</span>
+      </label>
+      <label class="sort-chip-label">
+        <%= f.check_box :is_favorite %>
+        <span class="sort-chip-txt">おすすめ</span>
+      </label>
+      <% @all_tags.each do |tag| %>
+        <label class="sort-chip-label">
+          <input type="checkbox" name="book_tag_ids[]" value="<%= tag[2] %>" <%= @book_tags.include?(tag[2]) ? "checked" : "" %>>
+          <span class="sort-chip-txt"><%= tag[0] %></span>
+        </label>
+      <% end %>
+    </div>
   </div>
 
   <div class="flex gap-3 mt-10">
-    <%= f.submit "作成する", class: "form-btn" %>
-    <%= link_to "キャンセル", books_path, class: "form-btn is-cancel" %>
+    <%= f.submit @book.new_record? ? "作成する" : "保存する", class: "form-btn" %>
+    <%= link_to "キャンセル", :back, class: "form-btn is-cancel" %>
   </div>
 <% end %>

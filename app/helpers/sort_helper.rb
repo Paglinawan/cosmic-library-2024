@@ -17,14 +17,4 @@ module SortHelper
       end)
     end
   end
-  def render_tags(sort_options:)
-    content_tag(:div, class: "sort-chips") do
-      sort_options.each do |option|
-        concat(content_tag(:label, class: "sort-chip-label") do
-          concat check_box_tag(option[:name], option[:value], option[:checked])
-          concat content_tag(:span, option[:label], class: "sort-chip-txt")
-        end)
-      end
-    end
-  end 
 end

@@ -1,6 +1,6 @@
 <div class="form-review-stars">
   <% (1..5).each do |star| %>
-    <input type="radio" name="review_star" id="review_star_<%= star %>" value="<%= star %>" class="form-review-stars-input" <%= 'checked' if star == 3 %>>
+    <input type="radio" name="review_star" id="review_star_<%= star %>" value="<%= star %>" class="form-review-stars-input" <%= 'checked' if star == review_star.to_i %> >
     <label for="review_star_<%= star %>" class="form-review-stars-label">★</label>
   <% end %>
 </div>
