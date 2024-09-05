@@ -45,12 +45,10 @@ export default class extends Controller {
       }
     `;
 
-    // GraphQLリクエストを送信
     const response = await fetchGraphQL(query, { id: modelId });
     const data = await response.json();
     const book = data.data.book;
 
-    // 表示切替
     this.language = this.language === "jp" ? "en" : "jp";
     const content = this.getContent(book, this.language);
     this.renderCard(content);
@@ -66,12 +64,9 @@ export default class extends Controller {
         comment: book.comment,
         author: book.author,
         quote: book.quote,
-
         reviewStar: book.reviewStar,
         year: book.year,
-
         bookTags: book.bookTags.map((tag) => tag.label),
-
         label: {
           classic: "名作",
           favorite: "おすすめ",
@@ -90,12 +85,9 @@ export default class extends Controller {
       comment: book.commentEn,
       author: book.authorEn,
       quote: book.quoteEn,
-
       reviewStar: book.reviewStar,
       year: book.year,
-
       bookTags: book.bookTags.map((tag) => tag.labelEn),
-
       label: {
         classic: "Classic",
         favorite: "Recommend",

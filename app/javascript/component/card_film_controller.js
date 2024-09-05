@@ -41,12 +41,10 @@ export default class extends Controller {
       }
     `;
 
-    // GraphQLリクエストを送信
     const response = await fetchGraphQL(query, { id: modelId });
     const data = await response.json();
     const film = data.data.film;
 
-    // 表示切替
     this.language = this.language === "jp" ? "en" : "jp";
     const content = this.getContent(film, this.language);
     this.renderCard(content);
@@ -61,12 +59,9 @@ export default class extends Controller {
         comment: film.comment,
         director: film.director,
         cast: film.cast,
-
         reviewStar: film.reviewStar,
         year: film.year,
-
         filmTags: film.filmTags.map((tag) => tag.label),
-
         label: {
           classic: "名作",
           favorite: "おすすめ",
@@ -83,12 +78,9 @@ export default class extends Controller {
       comment: film.commentEn,
       director: film.directorEn,
       cast: film.castEn,
-
       reviewStar: film.reviewStar,
       year: film.year,
-
       filmTags: film.filmTags.map((tag) => tag.labelEn),
-
       label: {
         classic: "Classic",
         favorite: "Recommend",
