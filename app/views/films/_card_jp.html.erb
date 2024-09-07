@@ -1,0 +1,55 @@
+<div class="card-head">
+  <% if el.is_classic || el.is_favorite || el.film_tags.any? %>
+    <ul class="card-tags">
+      <% if el.is_classic %>
+        <li class="card-tag is-classic">名作</li>
+      <% end %>
+      <% if el.is_favorite %>
+        <li class="card-tag is-favorite">おすすめ</li>
+      <% end %>
+      <% el.film_tags.each do |tag| %>
+        <li class="card-tag is-default"><%= tag.label %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <h3 class="card-title"><%= el.title %></h3>
+</div>
+<div class="card-info">
+  <p class="card-star">
+    <% 5.times do |i| %>
+      <span class="<%= i < el.review_star.to_i && 'is-active' %>">★</span>
+    <% end %>
+  </p>
+  <p class="card-when-where"><%= el.year %>/<%= el.country.label %></p>
+</div>
+<% if el.comment.present? %><p class="card-body"><%= el.comment %></p><% end %>
+<% if el.director.present? || el.cast.present? %>
+  <details class="card-details">
+    <summary class="toggle-more"><span class="toggle-more-close">閉じる</span><span class="toggle-more-open">開く</span></summary>
+    <dl class="card-info-dl">
+      <% if el.director.present? %>
+        <dt class="card-info-dt">監督</dt>
+        <dd class="card-info-dd"><%= el.director %></dd>
+      <% end %>
+    
+      <% if el.cast.present? %>
+        <dt class="card-info-dt">キャスト</dt>
+        <dd class="card-info-dd"><%= el.cast %></dd>
+      <% end %>
+    </dl>
+  </details>
+<% end %>
+<% if @is_signed %>
+  <div class="card-controller">
+    <%= button_to film_path(el.id), method: :delete, class: 'card-delete cursor-pointer hover:bg-circle', onclick: "return confirm('本当に削除しますか？');" do %>
+      <%= image_tag("icon-trash.svg", alt: "Cosmic Library", width: 24, height: 24) %>
+    <% end %>
+    <%= link_to edit_film_path(el.id), class: 'card-edit cursor-pointer hover:bg-circle' do %>
+      <%= image_tag("icon-edit.svg", alt: "Cosmic Library", width: 24, height: 24) %>
+    <% end %>
+    <label class="form-switch">
+      <input type="checkbox" name="">
+      <span class="form-switch-ball"></span>
+    </label>
+  </div>
+<% end %>

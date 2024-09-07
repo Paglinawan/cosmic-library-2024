@@ -1,32 +1,24 @@
 <%= render 'partials/flash_messages' %>
 <main class="cards">
   <% @books.each_with_index do |el, i| %>
-    <article class='card card#{i + 1}' data-controller="card-book" data-id="<%= el.id %>" data-type="book">
-      <div class='card-wrap' data-card-book-target="content">
+    <article class='card card#{i + 1}' data-controller="toggle-card" data-model-id="<%= el.id %>" data-model-type="book">
+      <div class='card-wrap' data-toggle-card-target="content">
+        <%= render partial: 'card_jp', locals: { el: el } %>
       </div>
       <% unless @is_signed %>
-        <button data-action="click->card-book#toggleCardType" class="card-translate btn-translate">
+        <button data-action="click->toggle-card#toggleCardType" class="card-translate btn-translate">
           <%= image_tag("icon-translate.svg", alt: "翻訳する", width: 40, height: 40, class: "btn-translate-img") %>
         </button>
-      <% end %>
-      <% if @is_signed %>
-        <div class="card-controller">
-          <%= button_to book_path(el.id), method: :delete, class: 'card-delete cursor-pointer hover:bg-circle', onclick: "return confirm('本当に削除しますか？');" do %>
-            <%= image_tag("icon-trash.svg", alt: "Cosmic Library", width: 24, height: 24) %>
-          <% end %>
-          <%= link_to edit_book_path(el.id), class: 'card-edit cursor-pointer hover:bg-circle' do %>
-            <%= image_tag("icon-edit.svg", alt: "Cosmic Library", width: 24, height: 24) %>
-          <% end %>
-          <label class="form-switch">
-            <input type="checkbox" name="">
-            <span class="form-switch-ball"></span>
-          </label>
-        </div>
       <% end %>
     </article>
   <% end %>
 </main>
 <aside class="sort" data-controller="toggle-lang">
+  <div class="sort-translate">
+    <button data-action="click->toggle-lang#toggleLang" class="btn-translate">
+      <%= image_tag("icon-translate.svg", alt: "翻訳する", width: 40, height: 40, class: "btn-translate-img") %>
+    </button>
+  </div>
   <div data-toggle-lang-target="contentJp">
     <%= render partial: 'partials/sort', locals: {
       url: books_path,

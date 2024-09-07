@@ -24,6 +24,10 @@
       );
     }
   }
+
+  .sort-chip-label:first-of-type {
+    padding-left: 4.8rem;
+  }
 }
 .sort-translate {
   position: absolute;
