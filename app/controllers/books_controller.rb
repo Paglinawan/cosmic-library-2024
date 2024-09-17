@@ -94,6 +94,8 @@ class BooksController < ApplicationController
       :comment_en,
       :author,
       :author_en,
+      :translator,
+      :translator_en,
       :publisher_id,
       :quote,
       :quote_en,

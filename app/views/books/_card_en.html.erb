@@ -23,13 +23,18 @@
   <p class="card-when-where"><%= el.year %>/<%= el.country.label_en %></p>
 </div>
 <% if el.comment_en.present? %><p class="card-body"><%= el.comment_en %></p><% end %>
-<% if el.author_en.present? || el.publisher.label_en.present? || el.quote_en.present? %>
+<% if el.author_en.present? || el.translator_en.present? || el.publisher.label_en.present? || el.quote_en.present? %>
   <details class="card-details">
     <summary class="toggle-more"><span class="toggle-more-close">Close</span><span class="toggle-more-open">Open</span></summary>
     <dl class="card-info-dl">
       <% if el.author_en.present? %>
         <dt class="card-info-dt">Author</dt>
         <dd class="card-info-dd"><%= el.author_en %></dd>
+      <% end %>
+
+      <% if el.translator_en.present? %>
+        <dt class="card-info-dt">Translator</dt>
+        <dd class="card-info-dd"><%= el.translator_en %></dd>
       <% end %>
 
       <% if el.publisher.present? %>
