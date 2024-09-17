@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_07_232657) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_17_123651) do
   create_table "book_tags", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "label", null: false
     t.string "label_en", null: false
@@ -30,6 +30,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_07_232657) do
     t.string "comment_en"
     t.string "author", null: false
     t.string "author_en", null: false
+    t.string "translator"
+    t.string "translator_en"
     t.bigint "publisher_id", null: false
     t.string "quote"
     t.string "quote_en"
