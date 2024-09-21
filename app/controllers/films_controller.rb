@@ -100,10 +100,8 @@ class FilmsController < ApplicationController
       :country_id,
       :year,
       :is_classic,
-      :is_favorite,
-    ).merge(film_tag_ids: params[:film_tag_ids]).tap do |whitelisted|
-      whitelisted[:review_star] ||= 3
-    end
+      :is_favorite
+    ).merge(film_tag_ids: params[:film_tag_ids])
   end
 
   def filter_params

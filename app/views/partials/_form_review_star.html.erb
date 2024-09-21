@@ -1,6 +1,7 @@
 <div class="form-review-stars">
+  <% current_review_star = review_star.presence || 3 %>
   <% (1..5).each do |star| %>
-    <input type="radio" name="review_star" id="review_star_<%= star %>" value="<%= star %>" class="form-review-stars-input" <%= 'checked' if star == review_star.to_i %> >
+    <%= f.radio_button :review_star, star, id: "review_star_#{star}", class: "form-review-stars-input", checked: (star == current_review_star) %>
     <label for="review_star_<%= star %>" class="form-review-stars-label">★</label>
   <% end %>
 </div>

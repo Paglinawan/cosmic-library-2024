@@ -1,5 +1,5 @@
 <%= form_with model: @book, html: { class: "form max-w-157" }  do |f| %>
-  <%= render partial: 'partials/form_review_star', locals: { review_star: @book.review_star || 3 } %>
+  <%= render partial: 'partials/form_review_star', locals: { f: f, review_star: @book.review_star } %>
   <div class="form-items mt-14">
     <%= f.label :title, "タイトル", class: "form-required" do %>
       <%= f.text_field :title, class: "form-input", placeholder: "タイトルを入力してください", required: true %>
