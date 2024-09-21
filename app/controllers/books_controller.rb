@@ -20,7 +20,7 @@ class BooksController < ApplicationController
 
   def new
     set_all_tags
-    @book = Book.new
+    @book = Book.new(year: 2000)
     set_book_tags
   end
 

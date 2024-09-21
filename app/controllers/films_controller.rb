@@ -20,7 +20,7 @@ class FilmsController < ApplicationController
 
   def new
     set_all_tags
-    @film = Film.new
+    @film = Film.new(year: 2000)
     set_film_tags
   end
 
