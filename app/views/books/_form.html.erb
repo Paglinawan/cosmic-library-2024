@@ -8,8 +8,8 @@
       <%= f.text_field :title_en, class: "form-input", placeholder: "タイトル（英語）を入力してください", required: true %>
     <% end %>
     <div class="flex gap-3">
-      <%= f.select :country_id, options_from_collection_for_select(Country.all, :id, :label), {}, class: "form-select" %>
-      <%= f.number_field :year, class: "form-input", value: 2000 %>
+      <%= f.select :country_id, options_from_collection_for_select(Country.all, :id, :label, @film.country_id), {}, class: "form-select" %>
+      <%= f.number_field :year, class: "form-input" %>
       <%= f.select :publisher_id, options_from_collection_for_select(Publisher.all, :id, :label), {}, class: "form-select" %>
     </div>
     <%= f.label :comment, "コメント" do %>
