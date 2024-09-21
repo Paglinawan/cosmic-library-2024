@@ -9,7 +9,7 @@
     <% end %>
     <div class="flex gap-3 max-w-82">
       <%= f.select :country_id, options_from_collection_for_select(Country.all, :id, :label), {}, class: "form-select" %>
-      <%= f.select :year, options_for_select((1900..Time.current.year).to_a.reverse), {}, class: "form-select" %>
+      <%= f.number_field :year, class: "form-input", value: 2000 %>
     </div>
     <%= f.label :comment, "コメント" do %>
       <%= f.text_field :comment, class: "form-textarea", maxlength: 100, placeholder: "コメントを入力してください" %>
