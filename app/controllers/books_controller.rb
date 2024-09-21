@@ -104,9 +104,7 @@ class BooksController < ApplicationController
       :year,
       :is_classic,
       :is_favorite,
-    ).merge(book_tag_ids: params[:book_tag_ids]).tap do |whitelisted|
-      whitelisted[:review_star] ||= 3
-    end
+    ).merge(book_tag_ids: params[:book_tag_ids])
   end
   
 
