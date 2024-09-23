@@ -2,7 +2,6 @@ class BooksController < ApplicationController
   include Authenticatable
   include Authorization
   include Filterable
-  include Sortable
   include Paginatable
 
   before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
@@ -12,7 +11,6 @@ class BooksController < ApplicationController
     set_params_tags
     @records = apply_filters(Book, filter_params, tag_type: :book_tags)
 
-    apply_sorting(params[:sort_by])
     apply_pagination(9)
 
     @books = @records.includes(:country, :book_tags)

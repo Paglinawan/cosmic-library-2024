@@ -2,7 +2,6 @@ class FilmsController < ApplicationController
   include Authenticatable
   include Authorization
   include Filterable
-  include Sortable
   include Paginatable
 
   before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
@@ -12,7 +11,6 @@ class FilmsController < ApplicationController
     set_params_tags
     @records = apply_filters(Film, filter_params, tag_type: :film_tags)
 
-    apply_sorting(params[:sort_by])
     apply_pagination(9)
 
     @films = @records.includes(:country, :film_tags)
