@@ -26,12 +26,6 @@
       favorite_label: "おすすめ",
       tag_name: "book_tag_ids[]",
       tag_label_index: 0,
-      sort_by_options: [
-        ['作成日が新しい順に', 'created_at_desc'],
-        ['作成日が古い順に', 'created_at_asc'],
-        ['レビューが高い順に', 'review_star_desc'],
-        ['レビューが低い順に', 'review_star_asc']
-      ],
       submit_text: "並びかえ"
     } %>
     <%= render partial: 'partials/pagy_nav', locals: {
@@ -46,12 +40,6 @@
       favorite_label: "Recommend",
       tag_name: "book_tag_ids[]",
       tag_label_index: 1,
-      sort_by_options: [
-        ['By Newest Creation Date', 'created_at_desc'],
-        ['By Oldest Creation Date', 'created_at_asc'],
-        ['By Highest Reviews', 'review_star_desc'],
-        ['By Lowest Reviews', 'review_star_asc']
-      ],
       submit_text: "Sort"
     } %>
     <%= render partial: 'partials/pagy_nav', locals: {

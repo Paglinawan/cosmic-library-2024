@@ -1,5 +1,5 @@
 module SortHelper
-  def render_sort_form(url:, sort_options:, sort_by_options:, selected_sort_by:, submit_text:)
+  def render_sort_form(url:, sort_options:, submit_text:)
     form_with url: url, class: "sort-form", method: :get, local: true do
       concat(content_tag(:div, class: "sort-chips") do
         sort_options.each do |option|
@@ -11,8 +11,6 @@ module SortHelper
       end)
 
       concat(content_tag(:div, class: "sort-btm") do
-        concat select_tag(:sort_by, options_for_select(sort_by_options, selected_sort_by), class: "sort-select")
-        concat hidden_field_tag(:commit, 'sort')
         concat button_tag(submit_text, class: 'sort-btn', type: 'submit')
       end)
     end
