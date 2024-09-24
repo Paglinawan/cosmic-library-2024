@@ -13,7 +13,7 @@ class FilmsController < ApplicationController
 
     apply_pagination(9)
 
-    @films = @records.includes(:country, :film_tags)
+    @films = @records.includes(:country, :film_tags).order(created_at: :desc)
   end
 
   def new

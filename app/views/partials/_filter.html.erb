@@ -1,0 +1,23 @@
+<%= form_with url: url, class: "sort-form", method: :get, local: true do %>
+  <div class="sort-chips">
+    <% 
+      filter_options = [
+        { name: "is_classic", value: "true", checked: params[:is_classic] == "true", label: classic_label },
+        { name: "is_favorite", value: "true", checked: params[:is_favorite] == "true", label: favorite_label },
+        *@all_tags.map { |tag| 
+          { name: tag_name, value: tag[2], checked: @params_tags.include?(tag[2].to_s), label: tag[tag_label_index] } 
+        }
+      ]
+      filter_options.each do |option| 
+    %>
+      <label class="sort-chip-label">
+        <%= check_box_tag option[:name], option[:value], option[:checked] %>
+        <span class="sort-chip-txt"><%= option[:label] %></span>
+      </label>
+    <% end %>
+  </div>
+
+  <div class="sort-btm">
+    <button type="submit" class="sort-btn"><%= submit_text %></button>
+  </div>
+<% end %>
