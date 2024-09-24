@@ -20,13 +20,13 @@
     </button>
   </div>
   <div data-toggle-lang-target="contentJp">
-    <%= render partial: 'partials/sort', locals: {
+    <%= render partial: 'partials/filter', locals: {
       url: books_path,
       classic_label: "名作",
       favorite_label: "おすすめ",
       tag_name: "book_tag_ids[]",
       tag_label_index: 0,
-      submit_text: "並びかえ"
+      submit_text: "絞り込み"
     } %>
     <%= render partial: 'partials/pagy_nav', locals: {
       count_text: "全 #{@page_total} 件",
@@ -34,13 +34,13 @@
   </div>
 
   <div data-toggle-lang-target="contentEn" class="hidden">
-    <%= render partial: 'partials/sort', locals: {
+    <%= render partial: 'partials/filter', locals: {
       url: books_path,
       classic_label: "Classic",
       favorite_label: "Recommend",
       tag_name: "book_tag_ids[]",
       tag_label_index: 1,
-      submit_text: "Sort"
+      submit_text: "Filter"
     } %>
     <%= render partial: 'partials/pagy_nav', locals: {
       count_text: "All #{@page_total} items",
