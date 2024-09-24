@@ -13,7 +13,7 @@ class BooksController < ApplicationController
 
     apply_pagination(9)
 
-    @books = @records.includes(:country, :book_tags)
+    @books = @records.includes(:country, :book_tags).order(created_at: :desc)
   end
 
   def new
