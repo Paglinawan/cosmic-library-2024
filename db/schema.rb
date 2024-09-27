@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_23_085529) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_27_102746) do
   create_table "book_tags", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "label", null: false
     t.string "label_en", null: false
@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_23_085529) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "book_tags_books", id: false, charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "book_tags_books", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.bigint "book_id", null: false
     t.bigint "book_tag_id", null: false
   end
@@ -61,7 +61,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_23_085529) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "film_tags_films", id: false, charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "film_tags_films", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.bigint "film_id", null: false
     t.bigint "film_tag_id", null: false
   end
