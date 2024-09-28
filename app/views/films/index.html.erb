@@ -1,4 +1,5 @@
 <%= render 'partials/flash_messages' %>
+<% if @films.present? %>
 <main class="cards">
   <% @films.each_with_index do |el, i| %>
     <article class='card card#{i + 1}' data-controller="toggle-card" data-model-id="<%= el.id %>" data-model-type="film">
@@ -13,6 +14,11 @@
     </article>
   <% end %>
 </main>
+<% else %>
+<div class="no-article">
+  <p class="no-article-text"><span>作</span><span>品</span><span>が</span><span>見</span><span>つ</span><span>か</span><span>り</span><span>ま</span><span>せ</span><span>ん</span><span>で</span><span>し</span><span>た</span></p>
+</div>
+<% end %>
 <aside class="sort" data-controller="toggle-lang">
   <div class="sort-translate">
     <button data-action="click->toggle-lang#toggleLang" class="btn-translate">
