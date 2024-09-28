@@ -1,0 +1,77 @@
+.no-article {
+  @media (width > 750px) {
+    padding: 8rem 0;
+  }
+  @media (width <= 750px) {
+    padding: 4rem 0;
+  }
+}
+.no-article-text {
+  display: flex;
+  font-size: var(--font-base);
+  font-weight: 700;
+  span {
+    opacity: 0;
+    animation: fadeIn ease-in 0.8s forwards;
+    animation-delay: calc(var(--i) * 0.06s);
+    animation-name: fadeIn;
+    &:nth-child(1) {
+      --i: 0;
+    }
+
+    &:nth-child(1) {
+      --i: 3;
+    }
+    &:nth-child(2) {
+      --i: 1;
+    }
+    &:nth-child(3) {
+      --i: 4;
+    }
+    &:nth-child(4) {
+      --i: 0;
+    }
+    &:nth-child(5) {
+      --i: 6;
+    }
+    &:nth-child(6) {
+      --i: 2;
+    }
+    &:nth-child(7) {
+      --i: 5;
+    }
+    &:nth-child(8) {
+      --i: 8;
+    }
+    &:nth-child(9) {
+      --i: 7;
+    }
+    &:nth-child(10) {
+      --i: 9;
+    }
+    &:nth-child(11) {
+      --i: 10;
+    }
+    &:nth-child(12) {
+      --i: 11;
+    }
+    &:nth-child(13) {
+      --i: 12;
+    }
+    &:nth-child(14) {
+      --i: 13;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
