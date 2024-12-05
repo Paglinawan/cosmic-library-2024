@@ -1,15 +1,4 @@
-
-![head](https://github.com/user-attachments/assets/36d986f5-a5c8-43e2-ac1d-18a9aeba9f46)
-
-
-
 - [Demo ↗︎](https://cosmic-library.lolipop.io/)
-- [Design / Information ↗︎](https://www.figma.com/proto/jfdga3oO0tinhR97WVfY3v/Cosmic-Library?node-id=2319-659&t=s2up9AY6piHJ7pDs-1&scaling=min-zoom&content-scaling=fixed&page-id=2319%3A108)
-
-```
-現在 大幅なリニューアルを予定しています。
-詳細は Design をご覧ください。
-```
 
 <br>
 
